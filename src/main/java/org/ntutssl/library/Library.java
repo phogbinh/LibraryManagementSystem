@@ -6,7 +6,7 @@ public class Library
 {
     public Library();
 
-    public void add(Item item);
+    public void add( Item item );
 
-    public Item getItem(int index);
+    public Item getItem( int index );
 }
