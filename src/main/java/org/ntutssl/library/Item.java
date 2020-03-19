@@ -1,6 +1,5 @@
 package org.ntutssl.library;
 
-
 public interface Item 
 {
     public void add( Item item );
