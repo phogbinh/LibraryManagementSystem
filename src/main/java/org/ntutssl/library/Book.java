@@ -2,13 +2,40 @@ package org.ntutssl.library;
 
 public class Book extends Readable
 {
-    public Book (String name, String description, String author, String isbn);
+    private String _name;
+    private String _description;
+    private String _author;
+    private String _isbn;
+
+    public Book( String name, String description, String author, String isbn )
+    {
+        _name = name;
+        _description = description;
+        _author = author;
+        _isbn = isbn;
+    }
     
-    public String name();
+    @Override
+    public String name()
+    {
+        return _name;
+    }
 
-    public String description();
+    @Override
+    public String description()
+    {
+        return _description;
+    }
 
-    public String author();
+    @Override
+    public String author()
+    {
+        return _author;
+    }
 
-    public String isbn();
+    @Override
+    public String isbn()
+    {
+        return _isbn;
+    }
 }
