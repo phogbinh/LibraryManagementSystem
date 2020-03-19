@@ -12,5 +12,9 @@ You will have to program a library management system, whose SRS is specified bel
 * A `Collection` should contain its name and description.
 * A `Collection` can contain zero or many `Book`(s) and other `Collection`(s).
 
+## Design Pattern
+The project uses the following design pattern:
+* Composite Pattern
+
 ## Contributor
 * [phogbinh](https://github.com/phogbinh)
