@@ -11,5 +11,4 @@ public interface Item
     public String author();
     public int size();
     public Iterator< Item > iterator();
-    public Item getItem( int index );
 }
