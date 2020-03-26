@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ReadableTest 
+public class ItemTest 
 {
     private final String BOOK_NAME = "Design Patterns: Elements of Reusable Object-Oriented Software";
     private final String BOOK_DESCRIPTION = "This is a software engineering book describing software design patterns.";
