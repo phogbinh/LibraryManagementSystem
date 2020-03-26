@@ -26,10 +26,4 @@ public abstract class Readable implements Item
     }
 
     public Iterator< Item > iterator();
-
-    @Override
-    public Item getItem( int index )
-    {
-        throw new IllegalStateException( ERROR_GET_ITEM_IS_CALLED_ON_A_BOOK_OBJECT );
-    }
 }
