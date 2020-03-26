@@ -119,7 +119,7 @@ public class CollectionTest
     }
 
     @Test
-    public void test_iterator_of_c1_being_its_internal_list_iterator()
+    public void test_iterator_of_c1_being_that_of_its_internal_items()
     {
         try
         {
