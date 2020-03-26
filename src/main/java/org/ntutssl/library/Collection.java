@@ -35,8 +35,20 @@ public class Collection extends Readable
     }
 
     @Override
-    public int size();
+    public int size()
+    {
+        int booksCount = 0;
+        Iterator< Item > iterator = iterator();
+        while ( iterator.hasNext() )
+        {
+            booksCount += iterator.next().size();
+        }
+        return booksCount;
+    }
 
     @Override
-    public Iterator< Item > iterator();
+    public Iterator< Item > iterator()
+    {
+        return _items.iterator();
+    }
 }

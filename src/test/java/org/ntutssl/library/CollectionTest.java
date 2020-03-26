@@ -103,4 +103,16 @@ public class CollectionTest
             assertTrue( false );
         }
     }
+
+    @Test
+    public void test_size_of_c1_being_3()
+    {
+        assertEquals( 3, _c1.size() );
+    }
+
+    @Test
+    public void test_size_of_c2_being_2()
+    {
+        assertEquals( 2, _c2.size() );
+    }
 }
