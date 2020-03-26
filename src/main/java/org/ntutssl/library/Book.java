@@ -40,5 +40,8 @@ public class Book extends Readable
     }
 
     @Override
-    public int size();
+    public int size()
+    {
+        return 1;
+    }
 }
