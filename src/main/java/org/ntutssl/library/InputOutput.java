@@ -1,6 +1,7 @@
 package org.ntutssl.library;
 
-public class InputOutput {
+public class InputOutput
+{
     public InputOutput();
 
     public void printLibraryInstructions();
@@ -18,5 +19,4 @@ public class InputOutput {
     public void listBooksInfo(Library library);
     
     public void listBooksInfoDetail(Library library);
-
 }
