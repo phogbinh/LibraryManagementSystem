@@ -33,6 +33,10 @@ public class Collection extends Readable
         _items.add( item );
     }
 
+    public int size();
+
+    public Iterator< Item > iterator();
+
     @Override
     public Item getItem( int index )
     {
