@@ -1,10 +1,12 @@
 package org.ntutssl.library;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
+import java.util.Iterator;
 import java.util.Vector;
 
 import org.junit.After;
@@ -114,5 +116,33 @@ public class CollectionTest
     public void test_size_of_c2_being_2()
     {
         assertEquals( 2, _c2.size() );
+    }
+
+    @Test
+    public void test_iterator_of_c1_being_its_internal_list_iterator()
+    {
+        try
+        {
+            Field itemsField = Collection.class.getDeclaredField( MEMBER_VARIABLE_NAME_ITEMS );
+            itemsField.setAccessible( true );
+            try
+            {
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( _c1 );
+                Iterator< Item > c1Iterator = _c1.iterator();
+                Iterator< Item > c1ItemsIterator = expectedItems.iterator();
+                assertSame( c1Iterator.next(), c1ItemsIterator.next() );
+                assertSame( c1Iterator.next(), c1ItemsIterator.next() );
+                assertFalse( c1Iterator.hasNext() );
+                assertFalse( c1ItemsIterator.hasNext() );
+            }
+            catch( IllegalAccessException exception )
+            {
+                assertTrue( false );
+            }
+        }
+        catch( NoSuchFieldException exception )
+        {
+            assertTrue( false );
+        }
     }
 }
