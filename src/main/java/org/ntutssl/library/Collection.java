@@ -1,19 +1,19 @@
 package org.ntutssl.library;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Vector;
 
 public class Collection extends Readable
 {
     private String _name;
     private String _description;
-    private ArrayList< Item > _items;
+    private Vector< Item > _items;
 
     public Collection( String name, String description )
     {
         _name = name;
         _description = description;
-        _items = new ArrayList< Item >();
+        _items = new Vector< Item >();
     }
 
     @Override

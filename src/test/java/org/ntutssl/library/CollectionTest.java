@@ -5,7 +5,7 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
+import java.util.Vector;
 
 import org.junit.After;
 import org.junit.Before;
@@ -88,7 +88,7 @@ public class CollectionTest
             itemsField.setAccessible( true );
             try
             {
-                ArrayList< Item > expectedItems = ( ArrayList< Item > )itemsField.get( c2 );
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( c2 );
                 assertEquals( 2, expectedItems.size() );
                 assertSame( b1, expectedItems.get( 0 ) );
                 assertSame( b2, expectedItems.get( 1 ) );
