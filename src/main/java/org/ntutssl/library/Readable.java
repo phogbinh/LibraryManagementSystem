@@ -1,5 +1,7 @@
 package org.ntutssl.library;
 
+import java.util.Iterator;
+
 public abstract class Readable implements Item 
 {
     private final String ERROR_ADD_IS_CALLED_ON_A_BOOK_OBJECT = "The function `add()` is called on a book object";
