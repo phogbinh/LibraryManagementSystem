@@ -8,7 +8,7 @@ public abstract class Readable implements Item
     private final String ERROR_GET_ITEM_IS_CALLED_ON_A_BOOK_OBJECT = "The function `getItem( int )` is called on a book object";
 
     @Override
-    public void add( Item items )
+    public void add( Item item )
     {
         throw new IllegalStateException( ERROR_ADD_IS_CALLED_ON_A_BOOK_OBJECT );
     }
