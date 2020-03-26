@@ -1,5 +1,7 @@
 package org.ntutssl.library;
 
+import java.util.Iterator;
+
 public interface Item 
 {
     public void add( Item item );
@@ -7,5 +9,6 @@ public interface Item
     public String description();
     public String isbn();
     public String author();
-    public Item getItem( int index );
+    public int size();
+    public Iterator< Item > iterator();
 }

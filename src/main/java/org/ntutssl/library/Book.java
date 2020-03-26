@@ -38,4 +38,7 @@ public class Book extends Readable
     {
         return _isbn;
     }
+
+    @Override
+    public int size();
 }

@@ -46,10 +46,4 @@ public class ItemTest
     {
         _collection.author();
     }
-
-    @Test( expected = IllegalStateException.class )
-    public void test_get_item_being_called_on_book_throwing_exception()
-    {
-        _book.getItem( TestDefinitions.DUMP_INTEGER );
-    }
 }

@@ -34,12 +34,8 @@ public class Collection extends Readable
     }
 
     @Override
-    public Item getItem( int index )
-    {
-        if ( index < 0 || _items.size() <= index )
-        {
-            throw new IllegalArgumentException( Definitions.ERROR_INDEX_IS_OUT_OF_RANGE );
-        }
-        return _items.get( index );
-    }
+    public int size();
+
+    @Override
+    public Iterator< Item > iterator();
 }
