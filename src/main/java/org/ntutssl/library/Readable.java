@@ -25,6 +25,8 @@ public abstract class Readable implements Item
         throw new IllegalStateException( ERROR_AUTHOR_IS_CALLED_ON_A_COLLECTION_OBJECT );
     }
 
+    public Iterator< Item > iterator();
+
     @Override
     public Item getItem( int index )
     {
