@@ -81,34 +81,4 @@ public class LibraryTest
             assertTrue( false );
         }
     }
-
-    @Test
-    public void test_getting_item_of_index_0_of_library_resulting_in_c1()
-    {
-        assertSame( _c1, _library.getItem( 0 ) );
-    }
-
-    @Test
-    public void test_getting_item_of_index_1_of_library_resulting_in_b1()
-    {
-        assertSame( _b1, _library.getItem( 1 ) );
-    }
-
-    @Test
-    public void test_getting_item_of_index_2_of_library_resulting_in_c2()
-    {
-        assertSame( _c2, _library.getItem( 2 ) );
-    }
-
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_minus1_of_library_throwing_exception()
-    {
-        _library.getItem( -1 );
-    }
-
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_3_of_library_throwing_exception()
-    {
-        _library.getItem( 3 );
-    }
 }

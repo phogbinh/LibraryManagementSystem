@@ -19,13 +19,4 @@ public class Library
     public int size();
 
     public Iterator< Item > iterator();
-
-    public Item getItem( int index )
-    {
-        if ( index < 0 || _items.size() <= index )
-        {
-            throw new IllegalArgumentException( Definitions.ERROR_INDEX_IS_OUT_OF_RANGE );
-        }
-        return _items.get( index );
-    }
 }
