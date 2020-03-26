@@ -81,4 +81,10 @@ public class LibraryTest
             assertTrue( false );
         }
     }
+
+    @Test
+    public void test_size_of_library_being_1()
+    {
+        assertEquals( 1, _library.size() );
+    }
 }
