@@ -5,7 +5,7 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
+import java.util.Vector;
 
 import org.junit.After;
 import org.junit.Before;
@@ -65,7 +65,7 @@ public class LibraryTest
             itemsField.setAccessible( true );
             try
             {
-                ArrayList< Item > expectedItems = ( ArrayList< Item > )itemsField.get( library );
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( library );
                 assertEquals( 3, expectedItems.size() );
                 assertSame( c1, expectedItems.get( 0 ) );
                 assertSame( b1, expectedItems.get( 1 ) );

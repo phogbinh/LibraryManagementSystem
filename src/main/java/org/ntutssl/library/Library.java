@@ -1,14 +1,14 @@
 package org.ntutssl.library;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 public class Library 
 {
-    ArrayList< Item > _items;
+    Vector< Item > _items;
 
     public Library()
     {
-        _items = new ArrayList< Item >();
+        _items = new Vector< Item >();
     }
 
     public void add( Item item )
