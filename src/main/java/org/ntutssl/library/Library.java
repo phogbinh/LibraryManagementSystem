@@ -16,6 +16,10 @@ public class Library
         _items.add( item );
     }
 
+    public int size();
+
+    public Iterator< Item > iterator();
+
     public Item getItem( int index )
     {
         if ( index < 0 || _items.size() <= index )
