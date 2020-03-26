@@ -6,7 +6,7 @@ public class InputOutput
 
     public void printLibraryInstructions();
 
-    public void handleLibraryInstructions(String instruction, Library library);
+    public void handleLibraryInstructions( String instruction, Library library );
 
     public Item addBookInstructions();
 
@@ -14,9 +14,9 @@ public class InputOutput
 
     public void printCollectionInstructions();
 
-    public void handleCollectionInstructions(String instruction, Collection collection);
+    public void handleCollectionInstructions( String instruction, Collection collection );
     
-    public void listBooksInfo(Library library);
+    public void listBooksInfo( Library library );
     
-    public void listBooksInfoDetail(Library library);
+    public void listBooksInfoDetail( Library library );
 }
