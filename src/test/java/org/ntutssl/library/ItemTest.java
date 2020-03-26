@@ -1,5 +1,7 @@
 package org.ntutssl.library;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,5 +47,11 @@ public class ItemTest
     public void test_author_being_called_on_collection_throwing_exception()
     {
         _collection.author();
+    }
+
+    @Test
+    public void test_iterator_of_book_being_null_iterator()
+    {
+        assertTrue( _book.iterator() instanceof NullIterator );
     }
 }

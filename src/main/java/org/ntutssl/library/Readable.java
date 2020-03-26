@@ -27,5 +27,8 @@ public abstract class Readable implements Item
     }
 
     @Override
-    public Iterator< Item > iterator();
+    public Iterator< Item > iterator()
+    {
+        return new NullIterator();
+    }
 }
