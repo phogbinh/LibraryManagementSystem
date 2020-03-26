@@ -1,10 +1,12 @@
 package org.ntutssl.library;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
+import java.util.Iterator;
 import java.util.Vector;
 
 import org.junit.After;
@@ -86,5 +88,34 @@ public class LibraryTest
     public void test_size_of_library_being_1()
     {
         assertEquals( 1, _library.size() );
+    }
+
+    @Test
+    public void test_iterator_of_library_being_that_of_its_internal_items()
+    {
+        try
+        {
+            Field itemsField = Library.class.getDeclaredField( MEMBER_VARIABLE_NAME_ITEMS );
+            itemsField.setAccessible( true );
+            try
+            {
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( _library );
+                Iterator< Item > libraryIterator = _library.iterator();
+                Iterator< Item > libraryItemsIterator = expectedItems.iterator();
+                assertSame( libraryIterator.next(), libraryItemsIterator.next() );
+                assertSame( libraryIterator.next(), libraryItemsIterator.next() );
+                assertSame( libraryIterator.next(), libraryItemsIterator.next() );
+                assertFalse( libraryIterator.hasNext() );
+                assertFalse( libraryItemsIterator.hasNext() );
+            }
+            catch( IllegalAccessException exception )
+            {
+                assertTrue( false );
+            }
+        }
+        catch( NoSuchFieldException exception )
+        {
+            assertTrue( false );
+        }
     }
 }
