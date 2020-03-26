@@ -103,28 +103,4 @@ public class CollectionTest
             assertTrue( false );
         }
     }
-
-    @Test
-    public void test_getting_item_of_index_0_of_c1_resulting_in_c2()
-    {
-        assertSame( _c2, _c1.getItem( 0 ) );
-    }
-
-    @Test
-    public void test_getting_item_of_index_1_of_c1_resulting_in_b3()
-    {
-        assertSame( _b3, _c1.getItem( 1 ) );
-    }
-
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_minus1_of_c1_throwing_exception()
-    {
-        _c1.getItem( -1 );
-    }
-
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_2_of_c1_throwing_exception()
-    {
-        _c1.getItem( 2 );
-    }
 }
