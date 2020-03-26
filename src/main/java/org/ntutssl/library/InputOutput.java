@@ -5,18 +5,18 @@ public class InputOutput {
 
     public void printLibraryInstructions();
 
-    void handleLibraryInstructions(String instruction, Library library);
+    public void handleLibraryInstructions(String instruction, Library library);
 
-    Item addBookInstructions();
+    public Item addBookInstructions();
 
-    Item addCollectionInstructions();
+    public Item addCollectionInstructions();
 
     public void printCollectionInstructions();
 
-    void handleCollectionInstructions(String instruction, Collection collection);
+    public void handleCollectionInstructions(String instruction, Collection collection);
     
-    void listBooksInfo(Library library);
+    public void listBooksInfo(Library library);
     
-    void listBooksInfoDetail(Library library);
+    public void listBooksInfoDetail(Library library);
 
 }
