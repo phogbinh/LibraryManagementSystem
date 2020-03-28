@@ -5,7 +5,7 @@ import java.util.Vector;
 
 public class Library 
 {
-    Vector< Item > _items;
+    private Vector< Item > _items;
 
     public Library()
     {
