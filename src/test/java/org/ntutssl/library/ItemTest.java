@@ -1,5 +1,7 @@
 package org.ntutssl.library;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,9 +49,9 @@ public class ItemTest
         _collection.author();
     }
 
-    @Test( expected = IllegalStateException.class )
-    public void test_get_item_being_called_on_book_throwing_exception()
+    @Test
+    public void test_iterator_of_book_being_null_iterator()
     {
-        _book.getItem( TestDefinitions.DUMP_INTEGER );
+        assertTrue( _book.iterator() instanceof NullIterator );
     }
 }

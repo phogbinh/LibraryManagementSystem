@@ -49,4 +49,10 @@ public class BookTest
     {
         assertEquals( BOOK_ISBN, _book.isbn() );
     }
+
+    @Test
+    public void test_size_of_book_being_1()
+    {
+        assertEquals( 1, _book.size() );
+    }
 }

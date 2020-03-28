@@ -1,11 +1,13 @@
 package org.ntutssl.library;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
 
 import org.junit.After;
 import org.junit.Before;
@@ -65,7 +67,7 @@ public class LibraryTest
             itemsField.setAccessible( true );
             try
             {
-                ArrayList< Item > expectedItems = ( ArrayList< Item > )itemsField.get( library );
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( library );
                 assertEquals( 3, expectedItems.size() );
                 assertSame( c1, expectedItems.get( 0 ) );
                 assertSame( b1, expectedItems.get( 1 ) );
@@ -83,32 +85,37 @@ public class LibraryTest
     }
 
     @Test
-    public void test_getting_item_of_index_0_of_library_resulting_in_c1()
+    public void test_size_of_library_being_1()
     {
-        assertSame( _c1, _library.getItem( 0 ) );
+        assertEquals( 1, _library.size() );
     }
 
     @Test
-    public void test_getting_item_of_index_1_of_library_resulting_in_b1()
+    public void test_iterator_of_library_being_that_of_its_internal_items()
     {
-        assertSame( _b1, _library.getItem( 1 ) );
-    }
-
-    @Test
-    public void test_getting_item_of_index_2_of_library_resulting_in_c2()
-    {
-        assertSame( _c2, _library.getItem( 2 ) );
-    }
-
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_minus1_of_library_throwing_exception()
-    {
-        _library.getItem( -1 );
-    }
-
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_3_of_library_throwing_exception()
-    {
-        _library.getItem( 3 );
+        try
+        {
+            Field itemsField = Library.class.getDeclaredField( MEMBER_VARIABLE_NAME_ITEMS );
+            itemsField.setAccessible( true );
+            try
+            {
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( _library );
+                Iterator< Item > libraryIterator = _library.iterator();
+                Iterator< Item > libraryItemsIterator = expectedItems.iterator();
+                assertSame( libraryIterator.next(), libraryItemsIterator.next() );
+                assertSame( libraryIterator.next(), libraryItemsIterator.next() );
+                assertSame( libraryIterator.next(), libraryItemsIterator.next() );
+                assertFalse( libraryIterator.hasNext() );
+                assertFalse( libraryItemsIterator.hasNext() );
+            }
+            catch( IllegalAccessException exception )
+            {
+                assertTrue( false );
+            }
+        }
+        catch( NoSuchFieldException exception )
+        {
+            assertTrue( false );
+        }
     }
 }

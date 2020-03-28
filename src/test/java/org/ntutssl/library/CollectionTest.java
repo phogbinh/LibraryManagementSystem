@@ -1,11 +1,13 @@
 package org.ntutssl.library;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
 
 import org.junit.After;
 import org.junit.Before;
@@ -88,7 +90,7 @@ public class CollectionTest
             itemsField.setAccessible( true );
             try
             {
-                ArrayList< Item > expectedItems = ( ArrayList< Item > )itemsField.get( c2 );
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( c2 );
                 assertEquals( 2, expectedItems.size() );
                 assertSame( b1, expectedItems.get( 0 ) );
                 assertSame( b2, expectedItems.get( 1 ) );
@@ -105,26 +107,42 @@ public class CollectionTest
     }
 
     @Test
-    public void test_getting_item_of_index_0_of_c1_resulting_in_c2()
+    public void test_size_of_c1_being_3()
     {
-        assertSame( _c2, _c1.getItem( 0 ) );
+        assertEquals( 3, _c1.size() );
     }
 
     @Test
-    public void test_getting_item_of_index_1_of_c1_resulting_in_b3()
+    public void test_size_of_c2_being_2()
     {
-        assertSame( _b3, _c1.getItem( 1 ) );
+        assertEquals( 2, _c2.size() );
     }
 
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_minus1_of_c1_throwing_exception()
+    @Test
+    public void test_iterator_of_c1_being_that_of_its_internal_items()
     {
-        _c1.getItem( -1 );
-    }
-
-    @Test( expected = IllegalArgumentException.class )
-    public void test_getting_item_of_index_2_of_c1_throwing_exception()
-    {
-        _c1.getItem( 2 );
+        try
+        {
+            Field itemsField = Collection.class.getDeclaredField( MEMBER_VARIABLE_NAME_ITEMS );
+            itemsField.setAccessible( true );
+            try
+            {
+                Vector< Item > expectedItems = ( Vector< Item > )itemsField.get( _c1 );
+                Iterator< Item > c1Iterator = _c1.iterator();
+                Iterator< Item > c1ItemsIterator = expectedItems.iterator();
+                assertSame( c1Iterator.next(), c1ItemsIterator.next() );
+                assertSame( c1Iterator.next(), c1ItemsIterator.next() );
+                assertFalse( c1Iterator.hasNext() );
+                assertFalse( c1ItemsIterator.hasNext() );
+            }
+            catch( IllegalAccessException exception )
+            {
+                assertTrue( false );
+            }
+        }
+        catch( NoSuchFieldException exception )
+        {
+            assertTrue( false );
+        }
     }
 }
