@@ -1,6 +1,6 @@
 # Execution Example
 ## Description
-This is an example on how `LibraryManagementSystem` on the console.
+This is a demonstration of `LibraryManagementSystem` execution on the console.
 
 ### Program Execution
 ```
