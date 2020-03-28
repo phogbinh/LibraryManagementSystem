@@ -1,9 +1,10 @@
 # Library Management System
 ## Description
-This is the repository for the second homework of the course *Design Pattern* opened during the 2020 Spring Semester at the National Taipei University of Technology.
+This is the repository for the homeworks 2 and 3 of the course *Design Pattern* opened during the 2020 Spring Semester at the National Taipei University of Technology.
 
 ## Homework description
-You will have to program a library management system, whose SRS is specified below. Specifically, you must write the implementations and tests for the classes and their methods given in [this template project](https://drive.google.com/file/d/11TbQqwt9eXcH6WIj_QWdj3t_QwOF-p_U/view?usp=sharing).
+You will have to program a library management system, whose SRS is specified below. Specifically, you must write the implementations and tests for the classes and their methods given in [this template project](
+https://drive.google.com/file/d/1PH1wbgZ-TB2FJaLjuJo4Lfj6AGJHHVS7/view?usp=sharing).
 
 ## Software Requirements Specification (SRS)
 * The library management system can add an `Item` to the `Library`.
@@ -12,9 +13,13 @@ You will have to program a library management system, whose SRS is specified bel
 * A `Collection` should contain its name and description.
 * A `Collection` can contain zero or many `Book`(s) and other `Collection`(s).
 
-## Design Pattern
-The project uses the following design pattern:
+## Execution
+Please refer to [this execution example](docs/EXECUTION_EXAMPLE.md) to run the program.
+
+## Design Patterns
+The project uses the following design patterns:
 * Composite Pattern
+* Iterator Pattern
 
 ## Contributor
 * [phogbinh](https://github.com/phogbinh)
