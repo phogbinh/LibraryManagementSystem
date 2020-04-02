@@ -53,5 +53,8 @@ public class Collection extends Readable
     }
 
     @Override
-    public void accept( Visitor visitor );
+    public void accept( Visitor visitor )
+    {
+        visitor.visitCollection( this );
+    }
 }

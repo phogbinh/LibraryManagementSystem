@@ -3,10 +3,12 @@ package org.ntutssl.library;
 public class VisitorMock implements Visitor
 {
     public boolean IsCalledVisitBook;
+    public boolean IsCalledVisitCollection;
 
     public VisitorMock()
     {
         IsCalledVisitBook = false;
+        IsCalledVisitCollection = false;
     }
 
     @Override
@@ -18,7 +20,7 @@ public class VisitorMock implements Visitor
     @Override
     public void visitCollection( Collection collection )
     {
-        /* Body intentionally empty */
+        IsCalledVisitCollection = true;
     }
 
     @Override
