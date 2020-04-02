@@ -44,4 +44,7 @@ public class Book extends Readable
     {
         return 1;
     }
+
+    @Override
+    public void accept( Visitor visitor );
 }
