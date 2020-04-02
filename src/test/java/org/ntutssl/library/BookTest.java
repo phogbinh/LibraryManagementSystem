@@ -1,6 +1,7 @@
 package org.ntutssl.library;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -54,5 +55,13 @@ public class BookTest
     public void test_size_of_book_being_1()
     {
         assertEquals( 1, _book.size() );
+    }
+    
+    @Test
+    public void test_accept_calling_visitor_visit_book()
+    {
+        VisitorMock visitorMock = new VisitorMock();
+        _book.accept( visitorMock );
+        assertTrue( visitorMock.IsCalledVisitBook );
     }
 }

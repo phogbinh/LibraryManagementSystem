@@ -46,5 +46,8 @@ public class Book extends Readable
     }
 
     @Override
-    public void accept( Visitor visitor );
+    public void accept( Visitor visitor )
+    {
+        visitor.visitBook( this );
+    }
 }
