@@ -32,4 +32,6 @@ public class Library
     {
         return _items.iterator();
     }
+
+    public String findByName( String name );
 }
