@@ -221,4 +221,6 @@ public class InputOutput
         }
         return items;
     }
+
+    public void findItems( Library library );
 }
