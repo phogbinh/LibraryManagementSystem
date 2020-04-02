@@ -11,4 +11,5 @@ public interface Item
     public String author();
     public int size();
     public Iterator< Item > iterator();
+    public void accept( Visitor visitor );
 }
