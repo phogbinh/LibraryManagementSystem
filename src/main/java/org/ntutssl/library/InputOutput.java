@@ -174,17 +174,6 @@ public class InputOutput
             System.out.println( item.name() );
         }
     }
-    
-    public void listBooksInfoDetail( Library library )
-    {
-        Iterator< Item > iterator = library.iterator();
-        while ( iterator.hasNext() )
-        {
-            Visitor listDetailVisitor = new ListDetailVisitor();
-            iterator.next().accept( listDetailVisitor );
-            System.out.print( listDetailVisitor.getResult() );
-        }
-    }
 
     private ArrayList< Item > getAllLibraryItems( Library library )
     {
@@ -207,6 +196,17 @@ public class InputOutput
             items.addAll( getAllItems( itemIterator.next() ) );
         }
         return items;
+    }
+    
+    public void listBooksInfoDetail( Library library )
+    {
+        Iterator< Item > iterator = library.iterator();
+        while ( iterator.hasNext() )
+        {
+            Visitor listDetailVisitor = new ListDetailVisitor();
+            iterator.next().accept( listDetailVisitor );
+            System.out.print( listDetailVisitor.getResult() );
+        }
     }
 
     public void findItems( Library library )
