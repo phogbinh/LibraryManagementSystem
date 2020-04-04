@@ -13,10 +13,10 @@ public class ItemHelperTest
         final String BOOK_DESCRIPTION = "The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers.";
         final String BOOK_AUTHOR = "Thomas H. Cormen";
         final String BOOK_ISBN = "9780262033848";
-        final String EXPECTED_STRING = InputOutput.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
-            + Definitions.INDENT + InputOutput.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
-            + Definitions.INDENT + InputOutput.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + InputOutput.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
+        final String EXPECTED_STRING = ItemHelper.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
         assertEquals( EXPECTED_STRING, ItemHelper.getString( new Book( BOOK_NAME, BOOK_DESCRIPTION, BOOK_AUTHOR, BOOK_ISBN ) ) );
     }
 
@@ -25,8 +25,8 @@ public class ItemHelperTest
     {
         final String COLLECTION_NAME = "Data Structures and Algorithms Collection";
         final String COLLECTION_DESCRIPTION = "This is a data structures and algorithms collection";
-        final String EXPECTED_STRING = InputOutput.COLLECTION_NAME + COLLECTION_NAME + Definitions.END_LINE
-            + Definitions.INDENT + InputOutput.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE;
+        final String EXPECTED_STRING = ItemHelper.COLLECTION_NAME + COLLECTION_NAME + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE;
         assertEquals( EXPECTED_STRING, ItemHelper.getString( new Collection( COLLECTION_NAME, COLLECTION_DESCRIPTION ) ) );
     }
 

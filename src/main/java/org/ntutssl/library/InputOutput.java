@@ -34,19 +34,11 @@ public class InputOutput
     private final String INSTRUCTION_INPUT_COLLECTION_NAME = "Name of collection" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_COLLECTION_DESCRIPTION = "Description of collection" + Definitions.COLON + Definitions.SPACE;
 
-    public static String BOOK_NAME = "Book Name" + Definitions.COLON + Definitions.SPACE;
-    public static String BOOK_AUTHOR = Definitions.INDENT + "Author" + Definitions.COLON + Definitions.SPACE;
-    public static String BOOK_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
-    public static String BOOK_ISBN = Definitions.INDENT + "ISBN" + Definitions.COLON + Definitions.SPACE;
-    public static String COLLECTION_NAME = "Collection Name" + Definitions.COLON + Definitions.SPACE;
-    public static String COLLECTION_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
-
     private final String BOOK = "Book";
     private final String COLLECTION = "Collection";
     private final String ADDED = "added";
 
     private final String ERROR_COMMAND_IS_INVALID = "The given command is invalid";
-    public static String ERROR_ITEM_IS_OF_INVALID_TYPE = "The given item is of invalid type";
 
     public InputOutput()
     {
@@ -140,7 +132,7 @@ public class InputOutput
         }
         else
         {
-            throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
+            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
         System.out.println( Definitions.SPACE + item.name() + Definitions.SPACE + ADDED );
     }
@@ -182,19 +174,19 @@ public class InputOutput
         {
             if ( item instanceof Book )
             {
-                System.out.println( BOOK_NAME + item.name() );
-                System.out.println( BOOK_AUTHOR + item.author() );
-                System.out.println( BOOK_DESCRIPTION + item.description() );
-                System.out.println( BOOK_ISBN + item.isbn() );
+                System.out.println( ItemHelper.BOOK_NAME + item.name() );
+                System.out.println( ItemHelper.BOOK_AUTHOR + item.author() );
+                System.out.println( ItemHelper.BOOK_DESCRIPTION + item.description() );
+                System.out.println( ItemHelper.BOOK_ISBN + item.isbn() );
             }
             else if ( item instanceof Collection )
             {
-                System.out.println( COLLECTION_NAME + item.name() );
-                System.out.println( COLLECTION_DESCRIPTION + item.description() );
+                System.out.println( ItemHelper.COLLECTION_NAME + item.name() );
+                System.out.println( ItemHelper.COLLECTION_DESCRIPTION + item.description() );
             }
             else
             {
-                throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
+                throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
             }
         }
     }
