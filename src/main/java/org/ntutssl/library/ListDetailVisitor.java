@@ -23,7 +23,6 @@ public class ListDetailVisitor implements Visitor
     public void visitBook( Book book )
     {
         _itemInfo += ItemHelper.getString( book, _level );
-        _level--;
     }
 
     @Override
