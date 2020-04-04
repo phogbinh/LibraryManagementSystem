@@ -3,11 +3,11 @@ package org.ntutssl.library;
 public class ListDetailVisitor implements Visitor 
 {
     public static String BOOK_NAME = "Book Name" + Definitions.COLON + Definitions.SPACE;
-    public static String BOOK_AUTHOR = Definitions.INDENT + "Author" + Definitions.COLON + Definitions.SPACE;
-    public static String BOOK_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
-    public static String BOOK_ISBN = Definitions.INDENT + "ISBN" + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_AUTHOR = "Author" + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_DESCRIPTION = "Description" + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_ISBN = "ISBN" + Definitions.COLON + Definitions.SPACE;
     public static String COLLECTION_NAME = "Collection Name" + Definitions.COLON + Definitions.SPACE;
-    public static String COLLECTION_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
+    public static String COLLECTION_DESCRIPTION = "Description" + Definitions.COLON + Definitions.SPACE;
     private String _itemInfo;
 
     public ListDetailVisitor()
