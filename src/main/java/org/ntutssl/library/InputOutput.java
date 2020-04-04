@@ -177,11 +177,11 @@ public class InputOutput
     
     public void listBooksInfoDetail( Library library )
     {
-        ArrayList< Item > items = getAllLibraryItems( library );
-        for ( Item item : items )
+        Iterator< Item > iterator = library.iterator();
+        while ( iterator.hasNext() )
         {
             Visitor listDetailVisitor = new ListDetailVisitor();
-            item.accept( listDetailVisitor );
+            iterator.next().accept( listDetailVisitor );
             System.out.print( listDetailVisitor.getResult() );
         }
     }
