@@ -22,24 +22,14 @@ public class ListDetailVisitor implements Visitor
     @Override
     public void visitBook( Book book )
     {
-        indentItemInfo( 1 );
-        _itemInfo += BOOK_NAME + book.name() + Definitions.END_LINE;
-        indentItemInfo( 0 );
-        _itemInfo += BOOK_AUTHOR + book.author() + Definitions.END_LINE;
-        indentItemInfo( 0 );
-        _itemInfo += BOOK_DESCRIPTION + book.description() + Definitions.END_LINE;
-        indentItemInfo( 0 );
-        _itemInfo += BOOK_ISBN + book.isbn() + Definitions.END_LINE;
+        _itemInfo += ItemHelper.getString( book, _level );
         _level--;
     }
 
     @Override
     public void visitCollection( Collection collection )
     {
-        indentItemInfo( 1 );
-        _itemInfo += COLLECTION_NAME + collection.name() + Definitions.END_LINE;
-        indentItemInfo( 0 );
-        _itemInfo += COLLECTION_DESCRIPTION + collection.description() + Definitions.END_LINE;
+        _itemInfo += ItemHelper.getString( collection, _level );
         Iterator< Item > iterator = collection.iterator();
         _level++;
         while ( iterator.hasNext() )
@@ -47,14 +37,6 @@ public class ListDetailVisitor implements Visitor
             iterator.next().accept( this );
         }
         _level--;
-    }
-
-    private void indentItemInfo( int startingIndentsCount )
-    {
-        for ( int indentsCount = startingIndentsCount; indentsCount <= _level; indentsCount++ )
-        {
-            _itemInfo += Definitions.INDENT;
-        }
     }
 
     @Override
