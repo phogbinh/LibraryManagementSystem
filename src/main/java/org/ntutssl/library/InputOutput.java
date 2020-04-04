@@ -42,7 +42,6 @@ public class InputOutput
     private final String ADDED = "added";
 
     private final String ERROR_COMMAND_IS_INVALID = "The given command is invalid";
-    private final String ERROR_ITEM_IS_OF_INVALID_TYPE = "The given item is of invalid type";
 
     public InputOutput()
     {
@@ -141,7 +140,7 @@ public class InputOutput
         }
         else
         {
-            throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
+            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
         System.out.println( Definitions.SPACE + item.name() + Definitions.SPACE + ADDED );
     }

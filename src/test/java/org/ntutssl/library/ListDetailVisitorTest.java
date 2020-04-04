@@ -12,8 +12,19 @@ import org.junit.Test;
 
 public class ListDetailVisitorTest 
 {
+    // book
+    private final String BOOK_NAME = "Introduction to Algorithms, Third Edition";
+    private final String BOOK_DESCRIPTION = "The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers.";
+    private final String BOOK_AUTHOR = "Thomas H. Cormen";
+    private final String BOOK_ISBN = "9780262033848";
+    // collection
+    private final String COLLECTION_NAME = "Data Structures and Algorithms Collection";
+    private final String COLLECTION_DESCRIPTION = "This is a data structures and algorithms collection";
+
     private final String ITEM_INFO_CANNOT_BE_GOT = "The member variable item info cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEM_INFO = "_itemInfo";
+    private Book _book;
+    private Collection _collection;
     private Visitor _visitor;
 
     private String GetItemInfo()
@@ -41,6 +52,9 @@ public class ListDetailVisitorTest
     @Before
     public void setUp()
     {
+        _book = new Book( BOOK_NAME, BOOK_DESCRIPTION, BOOK_AUTHOR, BOOK_ISBN );
+        _collection = new Collection( COLLECTION_NAME, COLLECTION_DESCRIPTION );
+        _collection.add( _book );
         _visitor = new ListDetailVisitor();
     }
 
@@ -53,28 +67,24 @@ public class ListDetailVisitorTest
     @Test
     public void test_visiting_book_setting_item_info_to_book_info()
     {
-        final String BOOK_NAME = "Introduction to Algorithms, Third Edition";
-        final String BOOK_DESCRIPTION = "The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers.";
-        final String BOOK_AUTHOR = "Thomas H. Cormen";
-        final String BOOK_ISBN = "9780262033848";
         final String EXPECTED_STRING = ListDetailVisitor.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
             + Definitions.INDENT + ListDetailVisitor.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
             + Definitions.INDENT + ListDetailVisitor.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
             + Definitions.INDENT + ListDetailVisitor.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
-        Book book = new Book( BOOK_NAME, BOOK_DESCRIPTION, BOOK_AUTHOR, BOOK_ISBN );
-        book.accept( _visitor );
+        _book.accept( _visitor );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
 
     @Test
     public void test_visiting_collection_setting_item_info_to_collection_info()
     {
-        final String COLLECTION_NAME = "Data Structures and Algorithms Collection";
-        final String COLLECTION_DESCRIPTION = "This is a data structures and algorithms collection";
         final String EXPECTED_STRING = ListDetailVisitor.COLLECTION_NAME + COLLECTION_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ListDetailVisitor.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE;
-        Collection collection = new Collection( COLLECTION_NAME, COLLECTION_DESCRIPTION );
-        collection.accept( _visitor );
+            + Definitions.INDENT + ListDetailVisitor.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + ListDetailVisitor.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + ListDetailVisitor.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + ListDetailVisitor.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + ListDetailVisitor.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
+        _collection.accept( _visitor );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
 
