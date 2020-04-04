@@ -43,9 +43,7 @@ public class FindVisitorByName implements Visitor
         String result = "";
         for ( Item item : _items )
         {
-            Visitor listDetailVisitor = new ListDetailVisitor();
-            item.accept( listDetailVisitor );
-            result += listDetailVisitor.getResult();
+            result += ItemHelper.getString( item, 0 );
         }
         return result;
     }
