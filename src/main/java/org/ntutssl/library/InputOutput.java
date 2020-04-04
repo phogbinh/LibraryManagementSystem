@@ -34,19 +34,19 @@ public class InputOutput
     private final String INSTRUCTION_INPUT_COLLECTION_NAME = "Name of collection" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_COLLECTION_DESCRIPTION = "Description of collection" + Definitions.COLON + Definitions.SPACE;
 
-    private final String BOOK_NAME = "Book Name" + Definitions.COLON + Definitions.SPACE;
-    private final String BOOK_AUTHOR = Definitions.INDENT + "Author" + Definitions.COLON + Definitions.SPACE;
-    private final String BOOK_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
-    private final String BOOK_ISBN = Definitions.INDENT + "ISBN" + Definitions.COLON + Definitions.SPACE;
-    private final String COLLECTION_NAME = "Collection Name" + Definitions.COLON + Definitions.SPACE;
-    private final String COLLECTION_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_NAME = "Book Name" + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_AUTHOR = Definitions.INDENT + "Author" + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_ISBN = Definitions.INDENT + "ISBN" + Definitions.COLON + Definitions.SPACE;
+    public static String COLLECTION_NAME = "Collection Name" + Definitions.COLON + Definitions.SPACE;
+    public static String COLLECTION_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
 
     private final String BOOK = "Book";
     private final String COLLECTION = "Collection";
     private final String ADDED = "added";
 
     private final String ERROR_COMMAND_IS_INVALID = "The given command is invalid";
-    private final String ERROR_ITEM_IS_OF_INVALID_TYPE = "The given item is of invalid type";
+    public static String ERROR_ITEM_IS_OF_INVALID_TYPE = "The given item is of invalid type";
 
     public InputOutput()
     {
