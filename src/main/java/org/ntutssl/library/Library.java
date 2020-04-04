@@ -32,4 +32,14 @@ public class Library
     {
         return _items.iterator();
     }
+
+    public String findByName( String itemName )
+    {
+        Visitor findingByNameVisitor = new FindVisitorByName( itemName );
+        for ( Item item : _items )
+        {
+            item.accept( findingByNameVisitor );
+        }
+        return findingByNameVisitor.getResult();
+    }
 }

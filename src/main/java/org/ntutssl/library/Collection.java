@@ -51,4 +51,10 @@ public class Collection extends Readable
     {
         return _items.iterator();
     }
+
+    @Override
+    public void accept( Visitor visitor )
+    {
+        visitor.visitCollection( this );
+    }
 }

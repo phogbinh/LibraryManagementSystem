@@ -145,4 +145,12 @@ public class CollectionTest
             assertTrue( false );
         }
     }
+
+    @Test
+    public void test_accept_calling_visitor_visit_collection()
+    {
+        VisitorMock visitorMock = new VisitorMock();
+        _c1.accept( visitorMock );
+        assertTrue( visitorMock.IsCalledVisitCollection );
+    }
 }

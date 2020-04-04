@@ -9,7 +9,8 @@ public class InputOutput
     private final String COMMAND_LIBRARY_ADD_COLLECTION = "2";
     private final String COMMAND_LIBRARY_LIST = "3";
     private final String COMMAND_LIBRARY_LIST_ALL = "4";
-    private final String COMMAND_LIBRARY_EXIT = "5";
+    private final String COMMAND_LIBRARY_FIND = "5";
+    private final String COMMAND_LIBRARY_EXIT = "6";
 
     private final String COMMAND_COLLECTION_ADD_BOOK = "1";
     private final String COMMAND_COLLECTION_ADD_COLLECTION = "2";
@@ -22,7 +23,8 @@ public class InputOutput
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the library" + Definitions.END_LINE
         + Definitions.INDENT + "3. 'list': to list all the items name in the library" + Definitions.END_LINE
         + Definitions.INDENT + "4. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
-        + Definitions.INDENT + "5. 'exit': to exit the program.";
+        + Definitions.INDENT + "5. 'find': to find the item(s) in the library." + Definitions.END_LINE
+        + Definitions.INDENT + "6. 'exit': to exit the program.";
     private final String INSTRUCTION_INPUT_COLLECTION_COMMAND = "Please enter the instruction as following to manage the collection:" + Definitions.END_LINE
         + Definitions.INDENT + "1. 'Add book': to add book to the collection" + Definitions.END_LINE
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the collection" + Definitions.END_LINE
@@ -33,20 +35,13 @@ public class InputOutput
     private final String INSTRUCTION_INPUT_BOOK_ISBN = "ISBN of book" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_COLLECTION_NAME = "Name of collection" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_COLLECTION_DESCRIPTION = "Description of collection" + Definitions.COLON + Definitions.SPACE;
-
-    private final String BOOK_NAME = "Book Name" + Definitions.COLON + Definitions.SPACE;
-    private final String BOOK_AUTHOR = Definitions.INDENT + "Author" + Definitions.COLON + Definitions.SPACE;
-    private final String BOOK_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
-    private final String BOOK_ISBN = Definitions.INDENT + "ISBN" + Definitions.COLON + Definitions.SPACE;
-    private final String COLLECTION_NAME = "Collection Name" + Definitions.COLON + Definitions.SPACE;
-    private final String COLLECTION_DESCRIPTION = Definitions.INDENT + "Description" + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME = "Enter the name of the item to find" + Definitions.COLON + Definitions.SPACE;
 
     private final String BOOK = "Book";
     private final String COLLECTION = "Collection";
     private final String ADDED = "added";
 
     private final String ERROR_COMMAND_IS_INVALID = "The given command is invalid";
-    private final String ERROR_ITEM_IS_OF_INVALID_TYPE = "The given item is of invalid type";
 
     public InputOutput()
     {
@@ -75,6 +70,11 @@ public class InputOutput
                 break;
             case COMMAND_LIBRARY_LIST_ALL:
                 listBooksInfoDetail( library );
+                printLibraryInstructions();
+                handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
+                break;
+            case COMMAND_LIBRARY_FIND:
+                findItems( library );
                 printLibraryInstructions();
                 handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
                 break;
@@ -140,7 +140,7 @@ public class InputOutput
         }
         else
         {
-            throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
+            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
         System.out.println( Definitions.SPACE + item.name() + Definitions.SPACE + ADDED );
     }
@@ -180,22 +180,9 @@ public class InputOutput
         ArrayList< Item > items = getAllLibraryItems( library );
         for ( Item item : items )
         {
-            if ( item instanceof Book )
-            {
-                System.out.println( BOOK_NAME + item.name() );
-                System.out.println( BOOK_AUTHOR + item.author() );
-                System.out.println( BOOK_DESCRIPTION + item.description() );
-                System.out.println( BOOK_ISBN + item.isbn() );
-            }
-            else if ( item instanceof Collection )
-            {
-                System.out.println( COLLECTION_NAME + item.name() );
-                System.out.println( COLLECTION_DESCRIPTION + item.description() );
-            }
-            else
-            {
-                throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
-            }
+            Visitor listDetailVisitor = new ListDetailVisitor();
+            item.accept( listDetailVisitor );
+            System.out.print( listDetailVisitor.getResult() );
         }
     }
 
@@ -220,5 +207,11 @@ public class InputOutput
             items.addAll( getAllItems( itemIterator.next() ) );
         }
         return items;
+    }
+
+    public void findItems( Library library )
+    {
+        String itemName = Main.getInputString( INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME );
+        System.out.print( library.findByName( itemName ) );
     }
 }

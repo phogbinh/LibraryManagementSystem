@@ -15,11 +15,12 @@ import org.junit.Test;
 
 public class LibraryTest 
 {
+    private final String ITEM_NAME_AAA = "aaa";
     // c1
-    private final String COLLECTION_1_NAME = "Programming Collection";
+    private final String COLLECTION_1_NAME = ITEM_NAME_AAA;
     private final String COLLECTION_1_DESCRIPTION = "This is a programming collection.";
     // b1
-    private final String BOOK_1_NAME = "Introduction to Algorithms, Third Edition";
+    private final String BOOK_1_NAME = ITEM_NAME_AAA;
     private final String BOOK_1_DESCRIPTION = "The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers.";
     private final String BOOK_1_AUTHOR = "Thomas H. Cormen";
     private final String BOOK_1_ISBN = "9780262033848";
@@ -117,5 +118,17 @@ public class LibraryTest
         {
             assertTrue( false );
         }
+    }
+
+    @Test
+    public void test_finding_aaa_returning_info_of_c1_and_b1()
+    {
+        final String EXPECTED_STRING = ListDetailVisitor.COLLECTION_NAME + COLLECTION_1_NAME + Definitions.END_LINE
+            + Definitions.INDENT + ListDetailVisitor.COLLECTION_DESCRIPTION + COLLECTION_1_DESCRIPTION + Definitions.END_LINE
+            + ListDetailVisitor.BOOK_NAME + BOOK_1_NAME + Definitions.END_LINE
+            + Definitions.INDENT + ListDetailVisitor.BOOK_AUTHOR + BOOK_1_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + ListDetailVisitor.BOOK_DESCRIPTION + BOOK_1_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + ListDetailVisitor.BOOK_ISBN + BOOK_1_ISBN + Definitions.END_LINE;
+        assertEquals( EXPECTED_STRING, _library.findByName( ITEM_NAME_AAA ) );
     }
 }
