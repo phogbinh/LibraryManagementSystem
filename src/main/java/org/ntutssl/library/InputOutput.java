@@ -39,6 +39,7 @@ public class InputOutput
     private final String ADDED = "added";
 
     private final String ERROR_COMMAND_IS_INVALID = "The given command is invalid";
+    private final String ERROR_ITEM_IS_OF_INVALID_TYPE = "The given item is of invalid type";
 
     public InputOutput()
     {
@@ -132,7 +133,7 @@ public class InputOutput
         }
         else
         {
-            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
+            throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
         System.out.println( Definitions.SPACE + item.name() + Definitions.SPACE + ADDED );
     }
@@ -172,7 +173,9 @@ public class InputOutput
         ArrayList< Item > items = getAllLibraryItems( library );
         for ( Item item : items )
         {
-            System.out.print( ItemHelper.getString( item ) );
+            Visitor listDetailVisitor = new ListDetailVisitor();
+            item.accept( listDetailVisitor );
+            System.out.print( listDetailVisitor.getResult() );
         }
     }
 
