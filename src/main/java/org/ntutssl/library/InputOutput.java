@@ -172,22 +172,7 @@ public class InputOutput
         ArrayList< Item > items = getAllLibraryItems( library );
         for ( Item item : items )
         {
-            if ( item instanceof Book )
-            {
-                System.out.println( ItemHelper.BOOK_NAME + item.name() );
-                System.out.println( ItemHelper.BOOK_AUTHOR + item.author() );
-                System.out.println( ItemHelper.BOOK_DESCRIPTION + item.description() );
-                System.out.println( ItemHelper.BOOK_ISBN + item.isbn() );
-            }
-            else if ( item instanceof Collection )
-            {
-                System.out.println( ItemHelper.COLLECTION_NAME + item.name() );
-                System.out.println( ItemHelper.COLLECTION_DESCRIPTION + item.description() );
-            }
-            else
-            {
-                throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
-            }
+            System.out.print( ItemHelper.getString( item ) );
         }
     }
 
