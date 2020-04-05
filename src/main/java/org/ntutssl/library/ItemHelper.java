@@ -17,24 +17,22 @@ public final class ItemHelper
 
     public static String getString( Item item, int initialIndentCounts )
     {
-        String string = "";
         if ( item instanceof Book )
         {
-            string += getIndents( initialIndentCounts )     + BOOK_NAME        + item.name()        + Definitions.END_LINE;
-            string += getIndents( initialIndentCounts + 1 ) + BOOK_AUTHOR      + item.author()      + Definitions.END_LINE;
-            string += getIndents( initialIndentCounts + 1 ) + BOOK_DESCRIPTION + item.description() + Definitions.END_LINE;
-            string += getIndents( initialIndentCounts + 1 ) + BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
+            return getIndents( initialIndentCounts )     + BOOK_NAME        + item.name()        + Definitions.END_LINE
+                 + getIndents( initialIndentCounts + 1 ) + BOOK_AUTHOR      + item.author()      + Definitions.END_LINE
+                 + getIndents( initialIndentCounts + 1 ) + BOOK_DESCRIPTION + item.description() + Definitions.END_LINE
+                 + getIndents( initialIndentCounts + 1 ) + BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
         }
         else if ( item instanceof Collection )
         {
-            string += getIndents( initialIndentCounts )     + COLLECTION_NAME        + item.name()        + Definitions.END_LINE;
-            string += getIndents( initialIndentCounts + 1 ) + COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
+            return getIndents( initialIndentCounts )     + COLLECTION_NAME        + item.name()        + Definitions.END_LINE
+                 + getIndents( initialIndentCounts + 1 ) + COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
         }
         else
         {
             throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
-        return string;
     }
 
     private static String getIndents( int indentCounts )

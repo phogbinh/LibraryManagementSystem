@@ -67,10 +67,10 @@ public class ListDetailVisitorTest
     @Test
     public void test_visiting_book_setting_item_info_to_book_info()
     {
-        final String EXPECTED_STRING = ListDetailVisitor.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ListDetailVisitor.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
-            + Definitions.INDENT + ListDetailVisitor.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + ListDetailVisitor.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
+        final String EXPECTED_STRING = ItemHelper.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
         _book.accept( _visitor );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
@@ -78,12 +78,12 @@ public class ListDetailVisitorTest
     @Test
     public void test_visiting_collection_setting_item_info_to_collection_info()
     {
-        final String EXPECTED_STRING = ListDetailVisitor.COLLECTION_NAME + COLLECTION_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ListDetailVisitor.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + ListDetailVisitor.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
-            + Definitions.INDENT + Definitions.INDENT + ListDetailVisitor.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
-            + Definitions.INDENT + Definitions.INDENT + ListDetailVisitor.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + Definitions.INDENT + ListDetailVisitor.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
+        final String EXPECTED_STRING = ItemHelper.COLLECTION_NAME + COLLECTION_NAME + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + ItemHelper.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + ItemHelper.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
         _collection.accept( _visitor );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
