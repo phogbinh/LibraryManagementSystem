@@ -25,7 +25,7 @@ public class ListDetailVisitorTest
     private final String MEMBER_VARIABLE_NAME_ITEM_INFO = "_itemInfo";
     private Book _book;
     private Collection _collection;
-    private Visitor _visitor;
+    private ListDetailVisitor _visitor;
 
     private String GetItemInfo()
     {
