@@ -35,7 +35,7 @@ public class Library
 
     public String findByName( String itemName )
     {
-        Visitor findingByNameVisitor = new FindVisitorByName( itemName );
+        FindVisitorByName findingByNameVisitor = new FindVisitorByName( itemName );
         for ( Item item : _items )
         {
             item.accept( findingByNameVisitor );
