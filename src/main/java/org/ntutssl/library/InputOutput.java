@@ -203,7 +203,7 @@ public class InputOutput
         Iterator< Item > iterator = library.iterator();
         while ( iterator.hasNext() )
         {
-            Visitor listDetailVisitor = new ListDetailVisitor();
+            ListDetailVisitor listDetailVisitor = new ListDetailVisitor();
             iterator.next().accept( listDetailVisitor );
             System.out.print( listDetailVisitor.getResult() );
         }

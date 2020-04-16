@@ -44,7 +44,7 @@ public class FindVisitorByNameTest
     private Item _b1;
     private Item _b2;
     private Item _b3;
-    private Visitor _findingAaaVisitor;
+    private FindVisitorByName _findingAaaVisitor;
 
     private ArrayList< Item > GetItems()
     {
