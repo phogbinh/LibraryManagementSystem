@@ -42,4 +42,8 @@ public class Library
         }
         return findingByNameVisitor.getResult();
     }
+
+    public void importItems( String sourceFilePath );
+
+    public void exportItems( String destinationFilePath );
 }

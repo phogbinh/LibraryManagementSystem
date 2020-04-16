@@ -37,7 +37,6 @@ public class FindVisitorByName implements Visitor
         }
     }
 
-    @Override
     public String getResult()
     {
         String result = "";

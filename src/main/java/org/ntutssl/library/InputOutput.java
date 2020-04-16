@@ -214,4 +214,8 @@ public class InputOutput
         String itemName = Main.getInputString( INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME );
         System.out.print( library.findByName( itemName ) );
     }
+
+    public void importInstructions( Library library );
+
+    public void exportInstructions( Library library );
 }

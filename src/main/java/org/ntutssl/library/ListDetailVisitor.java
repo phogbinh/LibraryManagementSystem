@@ -32,7 +32,6 @@ public class ListDetailVisitor implements Visitor
         _level--;
     }
 
-    @Override
     public String getResult()
     {
         return _itemInfo;
