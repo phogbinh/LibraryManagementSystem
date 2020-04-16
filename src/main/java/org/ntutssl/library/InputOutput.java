@@ -200,13 +200,13 @@ public class InputOutput
     
     public void listBooksInfoDetail( Library library )
     {
+        ListDetailVisitor listDetailVisitor = new ListDetailVisitor();
         Iterator< Item > iterator = library.iterator();
         while ( iterator.hasNext() )
         {
-            ListDetailVisitor listDetailVisitor = new ListDetailVisitor();
             iterator.next().accept( listDetailVisitor );
-            System.out.print( listDetailVisitor.getResult() );
         }
+        System.out.print( listDetailVisitor.getResult() );
     }
 
     public void findItems( Library library )
