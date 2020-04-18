@@ -60,6 +60,14 @@ public class ItemBuilderTest
         throw new IllegalStateException( ITEM_CANNOT_BE_GOT );
     }
 
+    private void assertBookEquals( String expectedBookName, String expectedBookDescription, String expectedBookAuthor, String expectedBookIsbn, Book book )
+    {
+        assertEquals( expectedBookName,        book.name() );
+        assertEquals( expectedBookDescription, book.description() );
+        assertEquals( expectedBookAuthor,      book.author() );
+        assertEquals( expectedBookIsbn,        book.isbn() );
+    }
+
     @Before
     public void setUp()
     {
@@ -77,10 +85,7 @@ public class ItemBuilderTest
     {
         _itemBuilder.buildBook( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN );
         Item item = GetItem();
-        assertEquals( BOOK_1_NAME, item.name() );
-        assertEquals( BOOK_1_DESCRIPTION, item.description() );
-        assertEquals( BOOK_1_AUTHOR, item.author() );
-        assertEquals( BOOK_1_ISBN, item.isbn() );
+        assertBookEquals( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN, ( Book )item );
     }
 
     @Test
