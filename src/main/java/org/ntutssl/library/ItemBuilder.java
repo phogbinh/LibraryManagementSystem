@@ -2,6 +2,15 @@ package org.ntutssl.library;
 
 public class ItemBuilder
 {
-    /* Add function you need & do implementation by yourself */
-    public Item getResult();
+    private Item _item;
+
+    public ItemBuilder()
+    {
+        /* Body intentionally empty */
+    }
+
+    public Item getResult()
+    {
+        return _item;
+    }
 }
