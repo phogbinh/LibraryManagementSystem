@@ -84,8 +84,7 @@ public class ItemBuilderTest
     public void test_building_b1()
     {
         _itemBuilder.buildBook( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN );
-        Item item = GetItem();
-        assertBookEquals( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN, ( Book )item );
+        assertBookEquals( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN, ( Book )GetItem() );
     }
 
     @Test
