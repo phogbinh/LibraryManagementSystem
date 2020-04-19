@@ -11,5 +11,8 @@ public class ItemParser
 
     public void parseItem( String itemInJsonFormat );
 
-    public Item getResult();
+    public Item getResult()
+    {
+        return _itemBuilder.getResult();
+    }
 }
