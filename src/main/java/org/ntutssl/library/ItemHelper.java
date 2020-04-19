@@ -19,15 +19,15 @@ public final class ItemHelper
     {
         if ( item instanceof Book )
         {
-            return getIndents( initialIndentsCount )     + BOOK_NAME        + item.name()        + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1 ) + BOOK_AUTHOR      + item.author()      + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1 ) + BOOK_DESCRIPTION + item.description() + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1 ) + BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
+            return getIndents( initialIndentsCount, Definitions.INDENT )     + BOOK_NAME        + item.name()        + Definitions.END_LINE
+                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + BOOK_AUTHOR      + item.author()      + Definitions.END_LINE
+                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + BOOK_DESCRIPTION + item.description() + Definitions.END_LINE
+                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
         }
         else if ( item instanceof Collection )
         {
-            return getIndents( initialIndentsCount )     + COLLECTION_NAME        + item.name()        + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1 ) + COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
+            return getIndents( initialIndentsCount, Definitions.INDENT )     + COLLECTION_NAME        + item.name()        + Definitions.END_LINE
+                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
         }
         else
         {
@@ -53,12 +53,12 @@ public final class ItemHelper
         }
     }
 
-    private static String getIndents( int indentsCount )
+    private static String getIndents( int indentsCount, String indent )
     {
         String indents = "";
         for ( int index = 0; index < indentsCount; index++ )
         {
-            indents += Definitions.INDENT;
+            indents += indent;
         }
         return indents;
     }
