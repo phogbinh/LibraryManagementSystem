@@ -17,7 +17,10 @@ public class WriteVisitor implements Visitor
     }
 
     @Override
-    public void visitCollection( Collection collection );
+    public void visitCollection( Collection collection )
+    {
+        _jsonArrayItems = ItemHelper.getJsonObject( collection, INITIAL_JSON_INDENTS_COUNT );
+    }
 
     public String getResult()
     {
