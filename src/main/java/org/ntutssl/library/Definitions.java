@@ -22,6 +22,7 @@ public final class Definitions
     public static String JSON_OBJECT_PROPERTY_NAME_AUTHOR      = "author";
     public static String JSON_OBJECT_PROPERTY_NAME_ISBN        = "isbn";
     public static String JSON_OBJECT_PROPERTY_NAME_ITEMS       = "items";
+    public static String JSON_OBJECT_PROPERTY_NAME_ITEMS_LIST  = "itemlist";
 
     public static String JSON_OBJECT_TYPE_PROPERTY_VALUE_BOOK       = "book";
     public static String JSON_OBJECT_TYPE_PROPERTY_VALUE_COLLECTION = "collection";
