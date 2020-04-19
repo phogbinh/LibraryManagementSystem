@@ -65,6 +65,44 @@ public class ItemParserTest
         + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.CLOSING_CURLY_BRACE + Definitions.END_LINE
         + Definitions.JSON_INDENT + Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
         + Definitions.CLOSING_CURLY_BRACE;
+    // c1 JSON object
+    private final String COLLECTION_1_JSON_OBJECT = Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_COLLECTION + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + COLLECTION_1_NAME                                      + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + COLLECTION_1_DESCRIPTION                               + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS       + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.OPENING_SQUARE_BRACKET + Definitions.END_LINE
+        // c2 JSON object
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_COLLECTION + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + COLLECTION_2_NAME                                      + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + COLLECTION_2_DESCRIPTION                               + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS       + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.OPENING_SQUARE_BRACKET + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_BOOK + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_1_NAME                                      + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_1_DESCRIPTION                               + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_AUTHOR      + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_1_AUTHOR                                    + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ISBN        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_1_ISBN                                      + Definitions.QUOTATION_MARK + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.CLOSING_CURLY_BRACE + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_BOOK + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_2_NAME                                      + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_2_DESCRIPTION                               + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_AUTHOR      + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_2_AUTHOR                                    + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ISBN        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_2_ISBN                                      + Definitions.QUOTATION_MARK + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.CLOSING_CURLY_BRACE + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.CLOSING_CURLY_BRACE + Definitions.COMMA + Definitions.END_LINE
+        // b3 JSON object
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_BOOK + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_3_NAME                                      + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_3_DESCRIPTION                               + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_AUTHOR      + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_3_AUTHOR                                    + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ISBN        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + BOOK_3_ISBN                                      + Definitions.QUOTATION_MARK + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.CLOSING_CURLY_BRACE + Definitions.END_LINE
+        + Definitions.JSON_INDENT + Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
+        + Definitions.CLOSING_CURLY_BRACE;
 
     private final String ITEM_BUILDER_CANNOT_BE_GOT = "The member variable item builder cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEM_BUILDER = "_itemBuilder";
@@ -135,6 +173,20 @@ public class ItemParserTest
     {
         _itemParser.parseItem( COLLECTION_2_JSON_OBJECT );
         assertEqualsCollectionTwo( ( Collection )getItemBuilder().getResult() );
+    }
+
+    @Test
+    public void test_parsing_c1()
+    {
+        _itemParser.parseItem( COLLECTION_1_JSON_OBJECT );
+        Collection collectionOne = ( Collection )getItemBuilder().getResult();
+        assertEquals( COLLECTION_1_NAME,        collectionOne.name() );
+        assertEquals( COLLECTION_1_DESCRIPTION, collectionOne.description() );
+        assertEquals( 3,                        collectionOne.size() );
+        Iterator< Item > iterator = collectionOne.iterator();
+        assertEqualsCollectionTwo( ( Collection )iterator.next() );
+        assertBookEquals( BOOK_3_NAME, BOOK_3_DESCRIPTION, BOOK_3_AUTHOR, BOOK_3_ISBN, ( Book )iterator.next() );
+        assertFalse( iterator.hasNext() );
     }
 
     @Test
