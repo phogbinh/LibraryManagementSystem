@@ -13,13 +13,22 @@ public class WriteVisitor implements Visitor
     @Override
     public void visitBook( Book book )
     {
-        _jsonArrayItems = ItemHelper.getJsonObject( book, INITIAL_JSON_INDENTS_COUNT );
+        visitItem( book );
     }
 
     @Override
     public void visitCollection( Collection collection )
     {
-        _jsonArrayItems = ItemHelper.getJsonObject( collection, INITIAL_JSON_INDENTS_COUNT );
+        visitItem( collection );
+    }
+
+    private void visitItem( Item item )
+    {
+        if ( !_jsonArrayItems.isEmpty() )
+        {
+            _jsonArrayItems += Definitions.COMMA + Definitions.END_LINE;
+        }
+        _jsonArrayItems += ItemHelper.getJsonObject( item, INITIAL_JSON_INDENTS_COUNT );
     }
 
     public String getResult()
