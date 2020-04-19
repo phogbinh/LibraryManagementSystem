@@ -5,6 +5,7 @@ import java.io.StringReader;
 import java.util.NoSuchElementException;
 
 import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
 
 public class ItemParser
 {
@@ -45,6 +46,10 @@ public class ItemParser
         {
             parseJsonObjectPropertiesThenBuildBook();
         }
+        else if ( itemType.equals( Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_COLLECTION ) )
+        {
+            parseJsonObjectPropertiesThenBuildCollection();
+        }
         else
         {
             throw new NoSuchElementException( ERROR_ITEM_TYPE_IS_INVALID );
@@ -58,6 +63,31 @@ public class ItemParser
         String bookAuthor      = nextJsonObjectPropertyStringValue( Definitions.JSON_OBJECT_PROPERTY_NAME_AUTHOR );
         String bookIsbn        = nextJsonObjectPropertyStringValue( Definitions.JSON_OBJECT_PROPERTY_NAME_ISBN );
         _itemBuilder.buildBook( bookName, bookDescription, bookAuthor, bookIsbn );
+    }
+
+    private void parseJsonObjectPropertiesThenBuildCollection()
+    {
+        String collectionName        = nextJsonObjectPropertyStringValue( Definitions.JSON_OBJECT_PROPERTY_NAME_NAME );
+        String collectionDescription = nextJsonObjectPropertyStringValue( Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION );
+        _itemBuilder.beginBuildingCollection( collectionName, collectionDescription );
+        try
+        {
+            if ( !_jsonReader.nextName().equals( Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS ) )
+            {
+                throw new IllegalStateException( ERROR_JSON_OBJECT_PROPERTY_NAME_IS_NOT + Definitions.SPACE + Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS );
+            }
+            _jsonReader.beginArray();
+            while ( !_jsonReader.peek().equals( JsonToken.END_ARRAY ) )
+            {
+                parseJsonObjectThenBuildItem();
+            }
+            _jsonReader.endArray();
+        }
+        catch ( IOException exception )
+        {
+            throw new IllegalStateException( exception );
+        }
+        _itemBuilder.endBuildingCollection();
     }
 
     private String nextJsonObjectPropertyStringValue( String jsonObjectPropertyName )
