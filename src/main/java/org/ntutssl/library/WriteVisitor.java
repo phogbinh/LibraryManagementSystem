@@ -2,6 +2,7 @@ package org.ntutssl.library;
 
 public class WriteVisitor implements Visitor
 {
+    private final int INITIAL_JSON_INDENTS_COUNT = 2;
     private String _jsonArrayItems;
 
     public WriteVisitor()
@@ -10,7 +11,10 @@ public class WriteVisitor implements Visitor
     }
 
     @Override
-    public void visitBook( Book book );
+    public void visitBook( Book book )
+    {
+        _jsonArrayItems = ItemHelper.getJsonObject( book, INITIAL_JSON_INDENTS_COUNT );
+    }
 
     @Override
     public void visitCollection( Collection collection );

@@ -35,6 +35,24 @@ public final class ItemHelper
         }
     }
 
+    public static String getJsonObject( Item item, int initialJsonIndentsCount )
+    {
+        if ( item instanceof Book )
+        {
+            return getJsonIndents( initialJsonIndentsCount ) + Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+                 + getJsonIndents( initialJsonIndentsCount + 1 ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_BOOK + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+                 + getJsonIndents( initialJsonIndentsCount + 1 ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + item.name()                                      + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+                 + getJsonIndents( initialJsonIndentsCount + 1 ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + item.description()                               + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+                 + getJsonIndents( initialJsonIndentsCount + 1 ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_AUTHOR      + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + item.author()                                    + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+                 + getJsonIndents( initialJsonIndentsCount + 1 ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ISBN        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + item.isbn()                                      + Definitions.QUOTATION_MARK + Definitions.END_LINE
+                 + getJsonIndents( initialJsonIndentsCount ) + Definitions.CLOSING_CURLY_BRACE;
+        }
+        else
+        {
+            throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
+        }
+    }
+
     private static String getIndents( int indentsCount )
     {
         String indents = "";
@@ -43,5 +61,15 @@ public final class ItemHelper
             indents += Definitions.INDENT;
         }
         return indents;
+    }
+
+    private static String getJsonIndents( int jsonIndentsCount )
+    {
+        String jsonIndents = "";
+        for ( int index = 0; index < jsonIndentsCount; index++ )
+        {
+            jsonIndents += Definitions.JSON_INDENT;
+        }
+        return jsonIndents;
     }
 }
