@@ -27,6 +27,8 @@ public final class Definitions
     public static String JSON_OBJECT_TYPE_PROPERTY_VALUE_BOOK       = "book";
     public static String JSON_OBJECT_TYPE_PROPERTY_VALUE_COLLECTION = "collection";
 
+    public static String REGEX_NON_PRINTABLE_UNICODE_CHARACTERS = "\\p{C}";
+
     private Definitions()
     {
         /* Body intentionally empty */

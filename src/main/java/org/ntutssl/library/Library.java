@@ -1,5 +1,6 @@
 package org.ntutssl.library;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -80,5 +81,23 @@ public class Library
         }
     }
 
-    public void exportItems( String destinationFilePath );
+    public void exportItems( String destinationFilePath )
+    {
+        WriteVisitor writeVisitor = new WriteVisitor();
+        Iterator< Item > iterator = iterator();
+        while ( iterator.hasNext() )
+        {
+            iterator.next().accept( writeVisitor );
+        }
+        try
+        {
+            FileWriter fileWriter = new FileWriter( destinationFilePath );
+            fileWriter.write( writeVisitor.getResult() );
+            fileWriter.close();
+        }
+        catch ( IOException exception )
+        {
+            throw new RuntimeException( exception );
+        }
+    }
 }
