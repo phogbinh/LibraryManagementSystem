@@ -28,25 +28,25 @@ public class BookTest
     }
     
     @Test
-    public void test_getting_name()
+    public void test_get_name()
     {
         assertEquals( BOOK_NAME, _book.name() );
     }
 
     @Test
-    public void test_getting_description()
+    public void test_get_description()
     {
         assertEquals( BOOK_DESCRIPTION, _book.description() );
     }
 
     @Test
-    public void test_getting_author()
+    public void test_get_author()
     {
         assertEquals( BOOK_AUTHOR, _book.author() );
     }
 
     @Test
-    public void test_getting_isbn()
+    public void test_get_isbn()
     {
         assertEquals( BOOK_ISBN, _book.isbn() );
     }
