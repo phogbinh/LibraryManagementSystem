@@ -36,11 +36,11 @@ public class ItemBuilderTest
     private final String BOOK_3_AUTHOR = "Gang of Four (GoF)";
     private final String BOOK_3_ISBN = "9780201633610";
 
-    private final String ITEM_CANNOT_BE_GOT = "The member variable item cannot be got";
+    private final String ERROR_ITEM_CANNOT_BE_GOT = "The member variable item cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEM = "_item";
     private ItemBuilder _itemBuilder;
 
-    private Item GetItem()
+    private Item getItem()
     {
         try
         {
@@ -59,7 +59,7 @@ public class ItemBuilderTest
         {
             assertTrue( false );
         }
-        throw new IllegalStateException( ITEM_CANNOT_BE_GOT );
+        throw new IllegalStateException( ERROR_ITEM_CANNOT_BE_GOT );
     }
 
     private void buildCollectionTwo()
@@ -105,14 +105,14 @@ public class ItemBuilderTest
     public void test_building_b1()
     {
         _itemBuilder.buildBook( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN );
-        assertBookEquals( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN, ( Book )GetItem() );
+        assertBookEquals( BOOK_1_NAME, BOOK_1_DESCRIPTION, BOOK_1_AUTHOR, BOOK_1_ISBN, ( Book )getItem() );
     }
 
     @Test
     public void test_building_c2()
     {
         buildCollectionTwo();
-        assertEqualsCollectionTwo( ( Collection )GetItem() );
+        assertEqualsCollectionTwo( ( Collection )getItem() );
     }
 
     @Test
@@ -122,7 +122,7 @@ public class ItemBuilderTest
         buildCollectionTwo();
         _itemBuilder.buildBook( BOOK_3_NAME, BOOK_3_DESCRIPTION, BOOK_3_AUTHOR, BOOK_3_ISBN );
         _itemBuilder.endBuildingCollection();
-        Collection collectionOne = ( Collection )GetItem();
+        Collection collectionOne = ( Collection )getItem();
         assertEquals( COLLECTION_1_NAME,        collectionOne.name() );
         assertEquals( COLLECTION_1_DESCRIPTION, collectionOne.description() );
         assertEquals( 3,                        collectionOne.size() );
@@ -135,6 +135,6 @@ public class ItemBuilderTest
     @Test
     public void test_getting_result_returning_item()
     {
-        assertSame( GetItem(), _itemBuilder.getResult() );
+        assertSame( getItem(), _itemBuilder.getResult() );
     }
 }

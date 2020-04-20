@@ -65,13 +65,13 @@ public class CollectionTest
     }
     
     @Test
-    public void test_getting_name()
+    public void test_get_name()
     {
         assertEquals( COLLECTION_1_NAME, _c1.name() );
     }
 
     @Test
-    public void test_getting_description()
+    public void test_get_description()
     {
         assertEquals( COLLECTION_1_DESCRIPTION, _c1.description() );
     }

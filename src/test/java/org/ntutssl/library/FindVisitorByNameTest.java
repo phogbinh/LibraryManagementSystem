@@ -37,7 +37,7 @@ public class FindVisitorByNameTest
     private final String BOOK_3_AUTHOR = "Gang of Four (GoF)";
     private final String BOOK_3_ISBN = "9780201633610";
     
-    private final String ITEMS_CANNOT_BE_GOT = "The member variable items cannot be got";
+    private final String ERROR_ITEMS_CANNOT_BE_GOT = "The member variable items cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEMS = "_items";
     private Item _c1;
     private Item _c2;
@@ -46,7 +46,7 @@ public class FindVisitorByNameTest
     private Item _b3;
     private FindVisitorByName _findingAaaVisitor;
 
-    private ArrayList< Item > GetItems()
+    private ArrayList< Item > getItems()
     {
         try
         {
@@ -65,7 +65,7 @@ public class FindVisitorByNameTest
         {
             assertTrue( false );
         }
-        throw new IllegalStateException( ITEMS_CANNOT_BE_GOT );
+        throw new IllegalStateException( ERROR_ITEMS_CANNOT_BE_GOT );
     }
 
     @Before
@@ -93,7 +93,7 @@ public class FindVisitorByNameTest
     public void test_finding_aaa_visitor_visiting_b2_adding_b2_to_its_items()
     {
         _findingAaaVisitor.visitBook( ( Book )_b2 );
-        ArrayList< Item > expectedItems = GetItems();
+        ArrayList< Item > expectedItems = getItems();
         assertEquals( 1, expectedItems.size() );
         assertSame( _b2, expectedItems.get( 0 ) );
     }
@@ -102,7 +102,7 @@ public class FindVisitorByNameTest
     public void test_finding_aaa_visitor_visiting_b1_adding_nothing_to_its_items()
     {
         _findingAaaVisitor.visitBook( ( Book )_b1 );
-        ArrayList< Item > expectedItems = GetItems();
+        ArrayList< Item > expectedItems = getItems();
         assertEquals( 0, expectedItems.size() );
     }
 
@@ -110,7 +110,7 @@ public class FindVisitorByNameTest
     public void test_finding_aaa_visitor_visiting_c1_adding_c1_and_b2_to_its_items()
     {
         _findingAaaVisitor.visitCollection( ( Collection )_c1 );
-        ArrayList< Item > expectedItems = GetItems();
+        ArrayList< Item > expectedItems = getItems();
         assertEquals( 2, expectedItems.size() );
         assertSame( _c1, expectedItems.get( 0 ) );
         assertSame( _b2, expectedItems.get( 1 ) );
