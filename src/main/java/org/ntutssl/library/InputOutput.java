@@ -159,38 +159,6 @@ public class InputOutput
         return new Collection( inputCollectionName, inputCollectionDescription );
     }
     
-    public void listBooksInfo( Library library )
-    {
-        ArrayList< Item > items = getAllLibraryItems( library );
-        for ( Item item : items )
-        {
-            System.out.println( item.name() );
-        }
-    }
-
-    private ArrayList< Item > getAllLibraryItems( Library library )
-    {
-        ArrayList< Item > items = new ArrayList< Item >();
-        Iterator< Item > libraryIterator = library.iterator();
-        while ( libraryIterator.hasNext() )
-        {
-            items.addAll( getAllItems( libraryIterator.next() ) );
-        }
-        return items;
-    }
-
-    private ArrayList< Item > getAllItems( Item item )
-    {
-        ArrayList< Item > items = new ArrayList< Item >();
-        items.add( item );
-        Iterator< Item > itemIterator = item.iterator();
-        while ( itemIterator.hasNext() )
-        {
-            items.addAll( getAllItems( itemIterator.next() ) );
-        }
-        return items;
-    }
-    
     public void listBooksInfoDetail( Library library )
     {
         ListDetailVisitor listDetailVisitor = new ListDetailVisitor();
