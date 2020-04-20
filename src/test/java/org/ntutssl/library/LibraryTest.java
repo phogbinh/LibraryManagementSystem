@@ -148,6 +148,33 @@ public class LibraryTest
         assertEquals( EXPECTED_STRING, _library.findByName( ITEM_NAME_AAA ) );
     }
 
+    // TA b1
+    private final String TEACHING_ASSISTANT_BOOK_1_NAME = "Design Patterns";
+    private final String TEACHING_ASSISTANT_BOOK_1_DESCRIPTION = "This is a book discuss about 23 patterns of software designs.";
+    private final String TEACHING_ASSISTANT_BOOK_1_AUTHOR = "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides";
+    private final String TEACHING_ASSISTANT_BOOK_1_ISBN = "0201633612";
+    // TA c1
+    private final String TEACHING_ASSISTANT_COLLECTION_1_NAME = "Agile";
+    private final String TEACHING_ASSISTANT_COLLECTION_1_DESCRIPTION = "This collection contains all books about agile.";
+    // - TA b2
+    private final String TEACHING_ASSISTANT_BOOK_2_NAME = "Learning Agile: Understanding Scrum, XP, Lean, and Kanban";
+    private final String TEACHING_ASSISTANT_BOOK_2_DESCRIPTION = "Learning Agile is a comprehensive guide to the most popular agile methods, written in a light and engaging style that makes it easy for you to learn.";
+    private final String TEACHING_ASSISTANT_BOOK_2_AUTHOR = "Andrew Stellman, Jennifer Greene";
+    private final String TEACHING_ASSISTANT_BOOK_2_ISBN = "1449331920";
+    // - TA c2
+    private final String TEACHING_ASSISTANT_COLLECTION_2_NAME = "Design Patterns";
+    private final String TEACHING_ASSISTANT_COLLECTION_2_DESCRIPTION = "This collection contains all books about patterns.";
+    // -- TA b3
+    private final String TEACHING_ASSISTANT_BOOK_3_NAME = "A Pattern Language: Towns, Buildings, Construction (Hardcover)";
+    private final String TEACHING_ASSISTANT_BOOK_3_DESCRIPTION = "This article is about the structured design approach by architect Christopher Alexander.";
+    private final String TEACHING_ASSISTANT_BOOK_3_AUTHOR = "Christopher Alexander";
+    private final String TEACHING_ASSISTANT_BOOK_3_ISBN = "0195019199";
+    // -- TA b4
+    private final String TEACHING_ASSISTANT_BOOK_4_NAME = "Design Patterns";
+    private final String TEACHING_ASSISTANT_BOOK_4_DESCRIPTION = "This is a book discuss about 23 patterns of software designs(2nd edition).";
+    private final String TEACHING_ASSISTANT_BOOK_4_AUTHOR = "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides";
+    private final String TEACHING_ASSISTANT_BOOK_4_ISBN = "0201633613";
+
     @Test
     public void test_import_items()
     {
@@ -198,33 +225,6 @@ public class LibraryTest
         }
         assertFalse( libraryIterator.hasNext() );
     }
-
-    // TA b1
-    private final String TEACHING_ASSISTANT_BOOK_1_NAME = "Design Patterns";
-    private final String TEACHING_ASSISTANT_BOOK_1_DESCRIPTION = "This is a book discuss about 23 patterns of software designs.";
-    private final String TEACHING_ASSISTANT_BOOK_1_AUTHOR = "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides";
-    private final String TEACHING_ASSISTANT_BOOK_1_ISBN = "0201633612";
-    // TA c1
-    private final String TEACHING_ASSISTANT_COLLECTION_1_NAME = "Agile";
-    private final String TEACHING_ASSISTANT_COLLECTION_1_DESCRIPTION = "This collection contains all books about agile.";
-    // - TA b2
-    private final String TEACHING_ASSISTANT_BOOK_2_NAME = "Learning Agile: Understanding Scrum, XP, Lean, and Kanban";
-    private final String TEACHING_ASSISTANT_BOOK_2_DESCRIPTION = "Learning Agile is a comprehensive guide to the most popular agile methods, written in a light and engaging style that makes it easy for you to learn.";
-    private final String TEACHING_ASSISTANT_BOOK_2_AUTHOR = "Andrew Stellman, Jennifer Greene";
-    private final String TEACHING_ASSISTANT_BOOK_2_ISBN = "1449331920";
-    // - TA c2
-    private final String TEACHING_ASSISTANT_COLLECTION_2_NAME = "Design Patterns";
-    private final String TEACHING_ASSISTANT_COLLECTION_2_DESCRIPTION = "This collection contains all books about patterns.";
-    // -- TA b3
-    private final String TEACHING_ASSISTANT_BOOK_3_NAME = "A Pattern Language: Towns, Buildings, Construction (Hardcover)";
-    private final String TEACHING_ASSISTANT_BOOK_3_DESCRIPTION = "This article is about the structured design approach by architect Christopher Alexander.";
-    private final String TEACHING_ASSISTANT_BOOK_3_AUTHOR = "Christopher Alexander";
-    private final String TEACHING_ASSISTANT_BOOK_3_ISBN = "0195019199";
-    // -- TA b4
-    private final String TEACHING_ASSISTANT_BOOK_4_NAME = "Design Patterns";
-    private final String TEACHING_ASSISTANT_BOOK_4_DESCRIPTION = "This is a book discuss about 23 patterns of software designs(2nd edition).";
-    private final String TEACHING_ASSISTANT_BOOK_4_AUTHOR = "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides";
-    private final String TEACHING_ASSISTANT_BOOK_4_ISBN = "0201633613";
 
     @Test
     public void test_export_items()
