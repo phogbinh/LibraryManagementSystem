@@ -63,7 +63,7 @@ public class FindVisitorByName implements Visitor
         }
         else
         {
-            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
+            throw new IllegalStateException( Definitions.ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
     }
 }
