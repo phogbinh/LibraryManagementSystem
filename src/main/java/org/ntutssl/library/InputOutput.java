@@ -8,6 +8,7 @@ public class InputOutput
     private final String COMMAND_LIBRARY_ADD_BOOK = "1";
     private final String COMMAND_LIBRARY_ADD_COLLECTION = "2";
     private final String COMMAND_LIBRARY_IMPORT = "3";
+    private final String COMMAND_LIBRARY_EXPORT = "4";
     private final String COMMAND_LIBRARY_LIST_ALL = "5";
     private final String COMMAND_LIBRARY_FIND = "6";
     private final String COMMAND_LIBRARY_EXIT = "7";
@@ -22,6 +23,7 @@ public class InputOutput
         + Definitions.INDENT + "1. 'Add book': to add book to the library" + Definitions.END_LINE
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the library" + Definitions.END_LINE
         + Definitions.INDENT + "3. 'import': import the json file to library." + Definitions.END_LINE
+        + Definitions.INDENT + "4. 'export': export the library to json file." + Definitions.END_LINE
         + Definitions.INDENT + "5. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
         + Definitions.INDENT + "6. 'find': to find the item(s) in the library." + Definitions.END_LINE
         + Definitions.INDENT + "7. 'exit': to exit the program.";
@@ -37,6 +39,7 @@ public class InputOutput
     private final String INSTRUCTION_INPUT_COLLECTION_DESCRIPTION = "Description of collection" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME = "Enter the name of the item to find" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_TO_BE_IMPORTED_JSON_FILE_PATH = "Please enter the json file path you want to import" + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_TO_BE_EXPORTED_JSON_FILE_PATH = "Please enter the json file path you want to export" + Definitions.COLON + Definitions.SPACE;
 
     private final String BOOK = "Book";
     private final String COLLECTION = "Collection";
@@ -66,6 +69,11 @@ public class InputOutput
                 break;
             case COMMAND_LIBRARY_IMPORT:
                 importInstructions( library );
+                printLibraryInstructions();
+                handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
+                break;
+            case COMMAND_LIBRARY_EXPORT:
+                exportInstructions( library );
                 printLibraryInstructions();
                 handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
                 break;
@@ -190,5 +198,9 @@ public class InputOutput
         library.importItems( jsonFilePath );
     }
 
-    public void exportInstructions( Library library );
+    public void exportInstructions( Library library )
+    {
+        String jsonFilePath = Main.getInputString( INSTRUCTION_INPUT_TO_BE_EXPORTED_JSON_FILE_PATH );
+        library.exportItems( jsonFilePath );
+    }
 }
