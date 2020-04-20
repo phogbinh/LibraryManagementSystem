@@ -8,6 +8,7 @@ public class InputOutput
     private final String COMMAND_LIBRARY_ADD_BOOK = "1";
     private final String COMMAND_LIBRARY_ADD_COLLECTION = "2";
     private final String COMMAND_LIBRARY_IMPORT = "3";
+    private final String COMMAND_LIBRARY_EXPORT = "4";
     private final String COMMAND_LIBRARY_LIST_ALL = "5";
     private final String COMMAND_LIBRARY_FIND = "6";
     private final String COMMAND_LIBRARY_EXIT = "7";
@@ -68,6 +69,11 @@ public class InputOutput
                 break;
             case COMMAND_LIBRARY_IMPORT:
                 importInstructions( library );
+                printLibraryInstructions();
+                handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
+                break;
+            case COMMAND_LIBRARY_EXPORT:
+                exportInstructions( library );
                 printLibraryInstructions();
                 handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
                 break;
