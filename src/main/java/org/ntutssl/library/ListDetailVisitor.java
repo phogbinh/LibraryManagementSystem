@@ -16,7 +16,10 @@ public class ListDetailVisitor implements Visitor
     @Override
     public void visitBook( Book book )
     {
-        _itemInfo += ItemHelper.getString( book, _level );
+        _itemInfo += ItemHelper.getIndents( _level, Definitions.INDENT )     + ItemHelper.BOOK_NAME        + book.name()        + Definitions.END_LINE
+                   + ItemHelper.getIndents( _level + 1, Definitions.INDENT ) + ItemHelper.BOOK_AUTHOR      + book.author()      + Definitions.END_LINE
+                   + ItemHelper.getIndents( _level + 1, Definitions.INDENT ) + ItemHelper.BOOK_DESCRIPTION + book.description() + Definitions.END_LINE
+                   + ItemHelper.getIndents( _level + 1, Definitions.INDENT ) + ItemHelper.BOOK_ISBN        + book.isbn()        + Definitions.END_LINE;
     }
 
     @Override
