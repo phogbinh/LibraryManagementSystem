@@ -42,8 +42,13 @@ public class WriteVisitor implements Visitor
                          + Definitions.getIndents( _jsonIndentsCount + 1, Definitions.JSON_INDENT ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_COLLECTION + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
                          + Definitions.getIndents( _jsonIndentsCount + 1, Definitions.JSON_INDENT ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + collection.name()                                      + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
                          + Definitions.getIndents( _jsonIndentsCount + 1, Definitions.JSON_INDENT ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + collection.description()                               + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
-                         + Definitions.getIndents( _jsonIndentsCount + 1, Definitions.JSON_INDENT ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS       + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.OPENING_SQUARE_BRACKET + Definitions.END_LINE;
+                         + Definitions.getIndents( _jsonIndentsCount + 1, Definitions.JSON_INDENT ) + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS       + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.OPENING_SQUARE_BRACKET;
         Iterator< Item > iterator = collection.iterator();
+        boolean isEmptyCollection = iterator.hasNext();
+        if ( isEmptyCollection )
+        {
+            _jsonArrayItems += Definitions.END_LINE;
+        }
         _jsonIndentsCount += COLLECTION_TO_CHILDREN_JSON_INDENTS_COUNT;
         while ( iterator.hasNext() )
         {
@@ -55,7 +60,11 @@ public class WriteVisitor implements Visitor
             _jsonArrayItems += Definitions.END_LINE;
         }
         _jsonIndentsCount -= COLLECTION_TO_CHILDREN_JSON_INDENTS_COUNT;
-        _jsonArrayItems += Definitions.getIndents( _jsonIndentsCount + 1, Definitions.JSON_INDENT ) + Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
+        if ( isEmptyCollection )
+        {
+            _jsonArrayItems += Definitions.getIndents( _jsonIndentsCount + 1, Definitions.JSON_INDENT );
+        }
+        _jsonArrayItems += Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
                          + Definitions.getIndents( _jsonIndentsCount, Definitions.JSON_INDENT ) + Definitions.CLOSING_CURLY_BRACE;
     }
 

@@ -104,6 +104,27 @@ public class WriteVisitorTest
     }
 
     @Test
+    public void test_visiting_empty_collection()
+    {
+        final String EMPTY_COLLECTION_NAME = "Empty Collection";
+        final String EMPTY_COLLECTION_DESCRIPTION = "This collection is empty.";
+        final String EXPECTED_ITEMS_LIST_JSON_OBJECT = Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+            + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS_LIST + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.OPENING_SQUARE_BRACKET + Definitions.END_LINE
+            // empty collection JSON object
+            + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
+            + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_TYPE        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_TYPE_PROPERTY_VALUE_COLLECTION + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+            + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_NAME        + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + EMPTY_COLLECTION_NAME                                  + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+            + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_DESCRIPTION + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.QUOTATION_MARK + EMPTY_COLLECTION_DESCRIPTION                           + Definitions.QUOTATION_MARK + Definitions.COMMA + Definitions.END_LINE
+            + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.QUOTATION_MARK + Definitions.JSON_OBJECT_PROPERTY_NAME_ITEMS       + Definitions.QUOTATION_MARK + Definitions.COLON + Definitions.SPACE + Definitions.OPENING_SQUARE_BRACKET + Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
+            + Definitions.JSON_INDENT + Definitions.JSON_INDENT + Definitions.CLOSING_CURLY_BRACE + Definitions.END_LINE
+            + Definitions.JSON_INDENT + Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
+            + Definitions.CLOSING_CURLY_BRACE;
+        Collection emptyCollection = new Collection( EMPTY_COLLECTION_NAME, EMPTY_COLLECTION_DESCRIPTION );
+        _visitor.visitCollection( emptyCollection );
+        assertEquals( EXPECTED_ITEMS_LIST_JSON_OBJECT, _visitor.getResult() );
+    }
+
+    @Test
     public void test_visiting_c2()
     {
         final String EXPECTED_ITEMS_LIST_JSON_OBJECT = Definitions.OPENING_CURLY_BRACE + Definitions.END_LINE
