@@ -36,6 +36,8 @@ public final class Definitions
     public static String COLLECTION_NAME        = "Collection Name" + Definitions.COLON + Definitions.SPACE;
     public static String COLLECTION_DESCRIPTION = "Description"     + Definitions.COLON + Definitions.SPACE;
 
+    public static String ERROR_ITEM_IS_OF_INVALID_TYPE = "The given item is of invalid type";
+
     private Definitions()
     {
         /* Body intentionally empty */
