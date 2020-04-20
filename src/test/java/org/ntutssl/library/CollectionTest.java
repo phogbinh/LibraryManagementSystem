@@ -65,13 +65,13 @@ public class CollectionTest
     }
     
     @Test
-    public void test_getting_name()
+    public void test_get_name()
     {
         assertEquals( COLLECTION_1_NAME, _c1.name() );
     }
 
     @Test
-    public void test_getting_description()
+    public void test_get_description()
     {
         assertEquals( COLLECTION_1_DESCRIPTION, _c1.description() );
     }
@@ -95,12 +95,12 @@ public class CollectionTest
                 assertSame( b1, expectedItems.get( 0 ) );
                 assertSame( b2, expectedItems.get( 1 ) );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }
@@ -135,12 +135,12 @@ public class CollectionTest
                 assertFalse( c1Iterator.hasNext() );
                 assertFalse( c1ItemsIterator.hasNext() );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }

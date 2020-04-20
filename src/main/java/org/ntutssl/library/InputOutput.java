@@ -1,45 +1,48 @@
 package org.ntutssl.library;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class InputOutput
 {
-    private final String COMMAND_LIBRARY_ADD_BOOK = "1";
+    private final String COMMAND_LIBRARY_ADD_BOOK       = "1";
     private final String COMMAND_LIBRARY_ADD_COLLECTION = "2";
-    private final String COMMAND_LIBRARY_LIST = "3";
-    private final String COMMAND_LIBRARY_LIST_ALL = "4";
-    private final String COMMAND_LIBRARY_FIND = "5";
-    private final String COMMAND_LIBRARY_EXIT = "6";
+    private final String COMMAND_LIBRARY_IMPORT         = "3";
+    private final String COMMAND_LIBRARY_EXPORT         = "4";
+    private final String COMMAND_LIBRARY_LIST_ALL       = "5";
+    private final String COMMAND_LIBRARY_FIND           = "6";
+    private final String COMMAND_LIBRARY_EXIT           = "7";
 
-    private final String COMMAND_COLLECTION_ADD_BOOK = "1";
+    private final String COMMAND_COLLECTION_ADD_BOOK       = "1";
     private final String COMMAND_COLLECTION_ADD_COLLECTION = "2";
-    private final String COMMAND_COLLECTION_EXIT = "3";
+    private final String COMMAND_COLLECTION_EXIT           = "3";
 
-    private final String INSTRUCTION_ADD_BOOK = "Please enter the informations of books" + Definitions.COLON;
+    private final String INSTRUCTION_ADD_BOOK       = "Please enter the informations of books"     + Definitions.COLON;
     private final String INSTRUCTION_ADD_COLLECTION = "Please enter the infomations of collection" + Definitions.COLON;
     private final String INSTRUCTION_INPUT_LIBRARY_COMMAND = "Please enter the instruction as following to manage the library:" + Definitions.END_LINE
-        + Definitions.INDENT + "1. 'Add book': to add book to the library" + Definitions.END_LINE
-        + Definitions.INDENT + "2. 'Add collection': to add a collection to the library" + Definitions.END_LINE
-        + Definitions.INDENT + "3. 'list': to list all the items name in the library" + Definitions.END_LINE
-        + Definitions.INDENT + "4. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
-        + Definitions.INDENT + "5. 'find': to find the item(s) in the library." + Definitions.END_LINE
-        + Definitions.INDENT + "6. 'exit': to exit the program.";
+        + Definitions.INDENT + "1. 'Add book': to add book to the library"                         + Definitions.END_LINE
+        + Definitions.INDENT + "2. 'Add collection': to add a collection to the library"           + Definitions.END_LINE
+        + Definitions.INDENT + "3. 'import': import the json file to library."                     + Definitions.END_LINE
+        + Definitions.INDENT + "4. 'export': export the library to json file."                     + Definitions.END_LINE
+        + Definitions.INDENT + "5. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
+        + Definitions.INDENT + "6. 'find': to find the item(s) in the library."                    + Definitions.END_LINE
+        + Definitions.INDENT + "7. 'exit': to exit the program.";
     private final String INSTRUCTION_INPUT_COLLECTION_COMMAND = "Please enter the instruction as following to manage the collection:" + Definitions.END_LINE
-        + Definitions.INDENT + "1. 'Add book': to add book to the collection" + Definitions.END_LINE
+        + Definitions.INDENT + "1. 'Add book': to add book to the collection"               + Definitions.END_LINE
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the collection" + Definitions.END_LINE
         + Definitions.INDENT + "3. 'exit': to exit the process.";
-    private final String INSTRUCTION_INPUT_BOOK_NAME = "Name of book" + Definitions.COLON + Definitions.SPACE;
-    private final String INSTRUCTION_INPUT_BOOK_DESCRIPTION = "Description of book" + Definitions.COLON + Definitions.SPACE;
-    private final String INSTRUCTION_INPUT_BOOK_AUTHOR = "Author of book" + Definitions.COLON + Definitions.SPACE;
-    private final String INSTRUCTION_INPUT_BOOK_ISBN = "ISBN of book" + Definitions.COLON + Definitions.SPACE;
-    private final String INSTRUCTION_INPUT_COLLECTION_NAME = "Name of collection" + Definitions.COLON + Definitions.SPACE;
-    private final String INSTRUCTION_INPUT_COLLECTION_DESCRIPTION = "Description of collection" + Definitions.COLON + Definitions.SPACE;
-    private final String INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME = "Enter the name of the item to find" + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_BOOK_NAME                     = "Name of book"                                       + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_BOOK_DESCRIPTION              = "Description of book"                                + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_BOOK_AUTHOR                   = "Author of book"                                     + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_BOOK_ISBN                     = "ISBN of book"                                       + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_COLLECTION_NAME               = "Name of collection"                                 + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_COLLECTION_DESCRIPTION        = "Description of collection"                          + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME         = "Enter the name of the item to find"                 + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_TO_BE_IMPORTED_JSON_FILE_PATH = "Please enter the json file path you want to import" + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_TO_BE_EXPORTED_JSON_FILE_PATH = "Please enter the json file path you want to export" + Definitions.COLON + Definitions.SPACE;
 
-    private final String BOOK = "Book";
+    private final String BOOK       = "Book";
     private final String COLLECTION = "Collection";
-    private final String ADDED = "added";
+    private final String ADDED      = "added";
 
     private final String ERROR_COMMAND_IS_INVALID = "The given command is invalid";
 
@@ -63,8 +66,13 @@ public class InputOutput
                 handleCollectionInstructions( Main.getInputString( Definitions.EMPTY ), ( Collection )inputCollection );
                 addItemToLibraryThenRepeatLibraryInstructions( inputCollection, library );
                 break;
-            case COMMAND_LIBRARY_LIST:
-                listBooksInfo( library );
+            case COMMAND_LIBRARY_IMPORT:
+                importInstructions( library );
+                printLibraryInstructions();
+                handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
+                break;
+            case COMMAND_LIBRARY_EXPORT:
+                exportInstructions( library );
                 printLibraryInstructions();
                 handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
                 break;
@@ -140,7 +148,7 @@ public class InputOutput
         }
         else
         {
-            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
+            throw new IllegalStateException( Definitions.ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
         System.out.println( Definitions.SPACE + item.name() + Definitions.SPACE + ADDED );
     }
@@ -166,52 +174,32 @@ public class InputOutput
         return new Collection( inputCollectionName, inputCollectionDescription );
     }
     
-    public void listBooksInfo( Library library )
-    {
-        ArrayList< Item > items = getAllLibraryItems( library );
-        for ( Item item : items )
-        {
-            System.out.println( item.name() );
-        }
-    }
-
-    private ArrayList< Item > getAllLibraryItems( Library library )
-    {
-        ArrayList< Item > items = new ArrayList< Item >();
-        Iterator< Item > libraryIterator = library.iterator();
-        while ( libraryIterator.hasNext() )
-        {
-            items.addAll( getAllItems( libraryIterator.next() ) );
-        }
-        return items;
-    }
-
-    private ArrayList< Item > getAllItems( Item item )
-    {
-        ArrayList< Item > items = new ArrayList< Item >();
-        items.add( item );
-        Iterator< Item > itemIterator = item.iterator();
-        while ( itemIterator.hasNext() )
-        {
-            items.addAll( getAllItems( itemIterator.next() ) );
-        }
-        return items;
-    }
-    
     public void listBooksInfoDetail( Library library )
     {
+        ListDetailVisitor listDetailVisitor = new ListDetailVisitor();
         Iterator< Item > iterator = library.iterator();
         while ( iterator.hasNext() )
         {
-            Visitor listDetailVisitor = new ListDetailVisitor();
             iterator.next().accept( listDetailVisitor );
-            System.out.print( listDetailVisitor.getResult() );
         }
+        System.out.print( listDetailVisitor.getResult() );
     }
 
     public void findItems( Library library )
     {
         String itemName = Main.getInputString( INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME );
         System.out.print( library.findByName( itemName ) );
+    }
+
+    public void importInstructions( Library library )
+    {
+        String jsonFilePath = Main.getInputString( INSTRUCTION_INPUT_TO_BE_IMPORTED_JSON_FILE_PATH );
+        library.importItems( jsonFilePath );
+    }
+
+    public void exportInstructions( Library library )
+    {
+        String jsonFilePath = Main.getInputString( INSTRUCTION_INPUT_TO_BE_EXPORTED_JSON_FILE_PATH );
+        library.exportItems( jsonFilePath );
     }
 }

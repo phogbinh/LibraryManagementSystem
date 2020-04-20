@@ -21,13 +21,13 @@ public class ListDetailVisitorTest
     private final String COLLECTION_NAME = "Data Structures and Algorithms Collection";
     private final String COLLECTION_DESCRIPTION = "This is a data structures and algorithms collection";
 
-    private final String ITEM_INFO_CANNOT_BE_GOT = "The member variable item info cannot be got";
+    private final String ERROR_ITEM_INFO_CANNOT_BE_GOT = "The member variable item info cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEM_INFO = "_itemInfo";
     private Book _book;
     private Collection _collection;
-    private Visitor _visitor;
+    private ListDetailVisitor _visitor;
 
-    private String GetItemInfo()
+    private String getItemInfo()
     {
         try
         {
@@ -37,16 +37,16 @@ public class ListDetailVisitorTest
             {
                 return ( String )itemInfoField.get( _visitor );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }
-        throw new IllegalStateException( ITEM_INFO_CANNOT_BE_GOT );
+        throw new IllegalStateException( ERROR_ITEM_INFO_CANNOT_BE_GOT );
     }
 
     @Before
@@ -67,30 +67,30 @@ public class ListDetailVisitorTest
     @Test
     public void test_visiting_book_setting_item_info_to_book_info()
     {
-        final String EXPECTED_STRING = ItemHelper.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
-        _book.accept( _visitor );
+        final String EXPECTED_STRING = Definitions.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
+        _visitor.visitBook( _book );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
 
     @Test
     public void test_visiting_collection_setting_item_info_to_collection_info()
     {
-        final String EXPECTED_STRING = ItemHelper.COLLECTION_NAME + COLLECTION_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
-            + Definitions.INDENT + Definitions.INDENT + ItemHelper.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
-            + Definitions.INDENT + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + Definitions.INDENT + ItemHelper.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
-        _collection.accept( _visitor );
+        final String EXPECTED_STRING = Definitions.COLLECTION_NAME + COLLECTION_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.COLLECTION_DESCRIPTION + COLLECTION_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_NAME + BOOK_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + Definitions.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + Definitions.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.INDENT + Definitions.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
+        _visitor.visitCollection( _collection );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
 
     @Test
     public void test_getting_result_returning_visitor_item_info()
     {
-        assertSame( GetItemInfo(), _visitor.getResult() );
+        assertSame( getItemInfo(), _visitor.getResult() );
     }
 }

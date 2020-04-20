@@ -22,10 +22,4 @@ public class VisitorMock implements Visitor
     {
         IsCalledVisitCollection = true;
     }
-
-    @Override
-    public String getResult()
-    {
-        return TestDefinitions.DUMP_STRING;
-    }
 }
