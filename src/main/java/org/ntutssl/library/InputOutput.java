@@ -7,9 +7,9 @@ public class InputOutput
 {
     private final String COMMAND_LIBRARY_ADD_BOOK = "1";
     private final String COMMAND_LIBRARY_ADD_COLLECTION = "2";
-    private final String COMMAND_LIBRARY_LIST_ALL = "4";
-    private final String COMMAND_LIBRARY_FIND = "5";
-    private final String COMMAND_LIBRARY_EXIT = "6";
+    private final String COMMAND_LIBRARY_LIST_ALL = "5";
+    private final String COMMAND_LIBRARY_FIND = "6";
+    private final String COMMAND_LIBRARY_EXIT = "7";
 
     private final String COMMAND_COLLECTION_ADD_BOOK = "1";
     private final String COMMAND_COLLECTION_ADD_COLLECTION = "2";
