@@ -17,26 +17,6 @@ public final class ItemHelper
         /* Body intentionally empty */
     }
 
-    public static String getString( Item item, int initialIndentsCount )
-    {
-        if ( item instanceof Book )
-        {
-            return getIndents( initialIndentsCount, Definitions.INDENT )     + BOOK_NAME        + item.name()        + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + BOOK_AUTHOR      + item.author()      + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + BOOK_DESCRIPTION + item.description() + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
-        }
-        else if ( item instanceof Collection )
-        {
-            return getIndents( initialIndentsCount, Definitions.INDENT )     + COLLECTION_NAME        + item.name()        + Definitions.END_LINE
-                 + getIndents( initialIndentsCount + 1, Definitions.INDENT ) + COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
-        }
-        else
-        {
-            throw new IllegalStateException( ERROR_ITEM_IS_OF_INVALID_TYPE );
-        }
-    }
-
     public static String getJsonObject( Item item, int initialJsonIndentsCount )
     {
         if ( item instanceof Book )
