@@ -2,7 +2,7 @@
 ## Description
 This is the repository for the homeworks 2, 3, 4 and 5 of the course *Design Pattern* opened during the 2020 Spring Semester at the National Taipei University of Technology.
 
-## Problem description
+## Problem Description
 You will have to program a library management system, whose SRS is specified below. Specifically, you must write the implementations and tests for the classes and their methods given in [this template project](
 https://drive.google.com/open?id=1uAi8Wd2Kcv2cXnW61Sz_OpzsMnqQ_lw_) (only accessible to Gmail accounts of domain `ntut.org.tw`).
 
@@ -56,6 +56,9 @@ The project implements the following design patterns:
 * Iterator
 * Visitor
 * Builder
+
+## Class Diagram
+![Class Diagram](docs/CLASS_DIAGRAM.jpg)
 
 ## Contributor
 * [phogbinh](https://github.com/phogbinh)
