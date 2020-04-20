@@ -7,7 +7,6 @@ public class InputOutput
 {
     private final String COMMAND_LIBRARY_ADD_BOOK = "1";
     private final String COMMAND_LIBRARY_ADD_COLLECTION = "2";
-    private final String COMMAND_LIBRARY_LIST = "3";
     private final String COMMAND_LIBRARY_LIST_ALL = "4";
     private final String COMMAND_LIBRARY_FIND = "5";
     private final String COMMAND_LIBRARY_EXIT = "6";
@@ -21,7 +20,6 @@ public class InputOutput
     private final String INSTRUCTION_INPUT_LIBRARY_COMMAND = "Please enter the instruction as following to manage the library:" + Definitions.END_LINE
         + Definitions.INDENT + "1. 'Add book': to add book to the library" + Definitions.END_LINE
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the library" + Definitions.END_LINE
-        + Definitions.INDENT + "3. 'list': to list all the items name in the library" + Definitions.END_LINE
         + Definitions.INDENT + "4. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
         + Definitions.INDENT + "5. 'find': to find the item(s) in the library." + Definitions.END_LINE
         + Definitions.INDENT + "6. 'exit': to exit the program.";
@@ -62,11 +60,6 @@ public class InputOutput
                 printCollectionInstructions();
                 handleCollectionInstructions( Main.getInputString( Definitions.EMPTY ), ( Collection )inputCollection );
                 addItemToLibraryThenRepeatLibraryInstructions( inputCollection, library );
-                break;
-            case COMMAND_LIBRARY_LIST:
-                listBooksInfo( library );
-                printLibraryInstructions();
-                handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
                 break;
             case COMMAND_LIBRARY_LIST_ALL:
                 listBooksInfoDetail( library );
@@ -164,38 +157,6 @@ public class InputOutput
         String inputCollectionName        = Main.getInputString( INSTRUCTION_INPUT_COLLECTION_NAME );
         String inputCollectionDescription = Main.getInputString( INSTRUCTION_INPUT_COLLECTION_DESCRIPTION );
         return new Collection( inputCollectionName, inputCollectionDescription );
-    }
-    
-    public void listBooksInfo( Library library )
-    {
-        ArrayList< Item > items = getAllLibraryItems( library );
-        for ( Item item : items )
-        {
-            System.out.println( item.name() );
-        }
-    }
-
-    private ArrayList< Item > getAllLibraryItems( Library library )
-    {
-        ArrayList< Item > items = new ArrayList< Item >();
-        Iterator< Item > libraryIterator = library.iterator();
-        while ( libraryIterator.hasNext() )
-        {
-            items.addAll( getAllItems( libraryIterator.next() ) );
-        }
-        return items;
-    }
-
-    private ArrayList< Item > getAllItems( Item item )
-    {
-        ArrayList< Item > items = new ArrayList< Item >();
-        items.add( item );
-        Iterator< Item > itemIterator = item.iterator();
-        while ( itemIterator.hasNext() )
-        {
-            items.addAll( getAllItems( itemIterator.next() ) );
-        }
-        return items;
     }
     
     public void listBooksInfoDetail( Library library )
