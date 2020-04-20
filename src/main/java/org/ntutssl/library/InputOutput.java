@@ -7,9 +7,9 @@ public class InputOutput
 {
     private final String COMMAND_LIBRARY_ADD_BOOK = "1";
     private final String COMMAND_LIBRARY_ADD_COLLECTION = "2";
-    private final String COMMAND_LIBRARY_LIST_ALL = "4";
-    private final String COMMAND_LIBRARY_FIND = "5";
-    private final String COMMAND_LIBRARY_EXIT = "6";
+    private final String COMMAND_LIBRARY_LIST_ALL = "5";
+    private final String COMMAND_LIBRARY_FIND = "6";
+    private final String COMMAND_LIBRARY_EXIT = "7";
 
     private final String COMMAND_COLLECTION_ADD_BOOK = "1";
     private final String COMMAND_COLLECTION_ADD_COLLECTION = "2";
@@ -20,9 +20,9 @@ public class InputOutput
     private final String INSTRUCTION_INPUT_LIBRARY_COMMAND = "Please enter the instruction as following to manage the library:" + Definitions.END_LINE
         + Definitions.INDENT + "1. 'Add book': to add book to the library" + Definitions.END_LINE
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the library" + Definitions.END_LINE
-        + Definitions.INDENT + "4. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
-        + Definitions.INDENT + "5. 'find': to find the item(s) in the library." + Definitions.END_LINE
-        + Definitions.INDENT + "6. 'exit': to exit the program.";
+        + Definitions.INDENT + "5. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
+        + Definitions.INDENT + "6. 'find': to find the item(s) in the library." + Definitions.END_LINE
+        + Definitions.INDENT + "7. 'exit': to exit the program.";
     private final String INSTRUCTION_INPUT_COLLECTION_COMMAND = "Please enter the instruction as following to manage the collection:" + Definitions.END_LINE
         + Definitions.INDENT + "1. 'Add book': to add book to the collection" + Definitions.END_LINE
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the collection" + Definitions.END_LINE
