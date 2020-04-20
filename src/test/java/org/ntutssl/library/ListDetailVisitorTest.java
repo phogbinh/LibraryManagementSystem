@@ -27,7 +27,7 @@ public class ListDetailVisitorTest
     private Collection _collection;
     private ListDetailVisitor _visitor;
 
-    private String GetItemInfo()
+    private String getItemInfo()
     {
         try
         {
@@ -91,6 +91,6 @@ public class ListDetailVisitorTest
     @Test
     public void test_getting_result_returning_visitor_item_info()
     {
-        assertSame( GetItemInfo(), _visitor.getResult() );
+        assertSame( getItemInfo(), _visitor.getResult() );
     }
 }
