@@ -139,12 +139,12 @@ public class LibraryTest
     @Test
     public void test_finding_aaa_returning_info_of_c1_and_b1()
     {
-        final String EXPECTED_STRING = ItemHelper.COLLECTION_NAME + COLLECTION_1_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.COLLECTION_DESCRIPTION + COLLECTION_1_DESCRIPTION + Definitions.END_LINE
-            + ItemHelper.BOOK_NAME + BOOK_1_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_AUTHOR + BOOK_1_AUTHOR + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + BOOK_1_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_ISBN + BOOK_1_ISBN + Definitions.END_LINE;
+        final String EXPECTED_STRING = Definitions.COLLECTION_NAME + COLLECTION_1_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.COLLECTION_DESCRIPTION + COLLECTION_1_DESCRIPTION + Definitions.END_LINE
+            + Definitions.BOOK_NAME + BOOK_1_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_AUTHOR + BOOK_1_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_DESCRIPTION + BOOK_1_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_ISBN + BOOK_1_ISBN + Definitions.END_LINE;
         assertEquals( EXPECTED_STRING, _library.findByName( ITEM_NAME_AAA ) );
     }
 

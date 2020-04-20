@@ -148,7 +148,7 @@ public class InputOutput
         }
         else
         {
-            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
+            throw new IllegalStateException( Definitions.ERROR_ITEM_IS_OF_INVALID_TYPE );
         }
         System.out.println( Definitions.SPACE + item.name() + Definitions.SPACE + ADDED );
     }
