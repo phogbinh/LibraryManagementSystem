@@ -62,11 +62,6 @@ public class InputOutput
                 handleCollectionInstructions( Main.getInputString( Definitions.EMPTY ), ( Collection )inputCollection );
                 addItemToLibraryThenRepeatLibraryInstructions( inputCollection, library );
                 break;
-            case COMMAND_LIBRARY_LIST:
-                listBooksInfo( library );
-                printLibraryInstructions();
-                handleLibraryInstructions( Main.getInputString( Definitions.EMPTY ), library );
-                break;
             case COMMAND_LIBRARY_LIST_ALL:
                 listBooksInfoDetail( library );
                 printLibraryInstructions();
