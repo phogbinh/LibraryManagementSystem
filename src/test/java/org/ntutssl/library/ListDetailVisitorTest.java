@@ -21,7 +21,7 @@ public class ListDetailVisitorTest
     private final String COLLECTION_NAME = "Data Structures and Algorithms Collection";
     private final String COLLECTION_DESCRIPTION = "This is a data structures and algorithms collection";
 
-    private final String ITEM_INFO_CANNOT_BE_GOT = "The member variable item info cannot be got";
+    private final String ERROR_ITEM_INFO_CANNOT_BE_GOT = "The member variable item info cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEM_INFO = "_itemInfo";
     private Book _book;
     private Collection _collection;
@@ -46,7 +46,7 @@ public class ListDetailVisitorTest
         {
             assertTrue( false );
         }
-        throw new IllegalStateException( ITEM_INFO_CANNOT_BE_GOT );
+        throw new IllegalStateException( ERROR_ITEM_INFO_CANNOT_BE_GOT );
     }
 
     @Before

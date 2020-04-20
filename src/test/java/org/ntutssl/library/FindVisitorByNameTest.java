@@ -37,7 +37,7 @@ public class FindVisitorByNameTest
     private final String BOOK_3_AUTHOR = "Gang of Four (GoF)";
     private final String BOOK_3_ISBN = "9780201633610";
     
-    private final String ITEMS_CANNOT_BE_GOT = "The member variable items cannot be got";
+    private final String ERROR_ITEMS_CANNOT_BE_GOT = "The member variable items cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEMS = "_items";
     private Item _c1;
     private Item _c2;
@@ -65,7 +65,7 @@ public class FindVisitorByNameTest
         {
             assertTrue( false );
         }
-        throw new IllegalStateException( ITEMS_CANNOT_BE_GOT );
+        throw new IllegalStateException( ERROR_ITEMS_CANNOT_BE_GOT );
     }
 
     @Before

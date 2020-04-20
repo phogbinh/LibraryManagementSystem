@@ -108,7 +108,7 @@ public class ItemParserTest
         + Definitions.JSON_INDENT + Definitions.CLOSING_SQUARE_BRACKET + Definitions.END_LINE
         + Definitions.CLOSING_CURLY_BRACE;
 
-    private final String ITEM_BUILDER_CANNOT_BE_GOT = "The member variable item builder cannot be got";
+    private final String ERROR_ITEM_BUILDER_CANNOT_BE_GOT = "The member variable item builder cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEM_BUILDER = "_itemBuilder";
     private ItemParser _itemParser;
 
@@ -131,7 +131,7 @@ public class ItemParserTest
         {
             assertTrue( false );
         }
-        throw new IllegalStateException( ITEM_BUILDER_CANNOT_BE_GOT );
+        throw new IllegalStateException( ERROR_ITEM_BUILDER_CANNOT_BE_GOT );
     }
 
     private void assertBookEquals( String expectedBookName, String expectedBookDescription, String expectedBookAuthor, String expectedBookIsbn, Book book )

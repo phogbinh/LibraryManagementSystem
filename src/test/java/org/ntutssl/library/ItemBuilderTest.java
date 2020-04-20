@@ -36,7 +36,7 @@ public class ItemBuilderTest
     private final String BOOK_3_AUTHOR = "Gang of Four (GoF)";
     private final String BOOK_3_ISBN = "9780201633610";
 
-    private final String ITEM_CANNOT_BE_GOT = "The member variable item cannot be got";
+    private final String ERROR_ITEM_CANNOT_BE_GOT = "The member variable item cannot be got";
     private final String MEMBER_VARIABLE_NAME_ITEM = "_item";
     private ItemBuilder _itemBuilder;
 
@@ -59,7 +59,7 @@ public class ItemBuilderTest
         {
             assertTrue( false );
         }
-        throw new IllegalStateException( ITEM_CANNOT_BE_GOT );
+        throw new IllegalStateException( ERROR_ITEM_CANNOT_BE_GOT );
     }
 
     private void buildCollectionTwo()
