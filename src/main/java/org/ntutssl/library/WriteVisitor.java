@@ -11,7 +11,7 @@ public class WriteVisitor implements Visitor
 
     public WriteVisitor()
     {
-        _jsonArrayItems = "";
+        _jsonArrayItems = Definitions.EMPTY;
         _jsonIndentsCount = INITIAL_JSON_INDENTS_COUNT;
     }
 
