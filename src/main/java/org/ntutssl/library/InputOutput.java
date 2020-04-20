@@ -38,6 +38,7 @@ public class InputOutput
     private final String INSTRUCTION_INPUT_COLLECTION_DESCRIPTION = "Description of collection" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_TO_BE_FOUND_ITEM_NAME = "Enter the name of the item to find" + Definitions.COLON + Definitions.SPACE;
     private final String INSTRUCTION_INPUT_TO_BE_IMPORTED_JSON_FILE_PATH = "Please enter the json file path you want to import" + Definitions.COLON + Definitions.SPACE;
+    private final String INSTRUCTION_INPUT_TO_BE_EXPORTED_JSON_FILE_PATH = "Please enter the json file path you want to export" + Definitions.COLON + Definitions.SPACE;
 
     private final String BOOK = "Book";
     private final String COLLECTION = "Collection";
@@ -191,5 +192,9 @@ public class InputOutput
         library.importItems( jsonFilePath );
     }
 
-    public void exportInstructions( Library library );
+    public void exportInstructions( Library library )
+    {
+        String jsonFilePath = Main.getInputString( INSTRUCTION_INPUT_TO_BE_EXPORTED_JSON_FILE_PATH );
+        library.exportItems( jsonFilePath );
+    }
 }
