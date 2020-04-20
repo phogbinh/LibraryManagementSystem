@@ -119,12 +119,12 @@ public class FindVisitorByNameTest
     @Test
     public void test_get_result()
     {
-        final String EXPECTED_RESULT = ItemHelper.COLLECTION_NAME + COLLECTION_1_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.COLLECTION_DESCRIPTION + COLLECTION_1_DESCRIPTION + Definitions.END_LINE
-            + ItemHelper.BOOK_NAME + BOOK_2_NAME + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_AUTHOR + BOOK_2_AUTHOR + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + BOOK_2_DESCRIPTION + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_ISBN + BOOK_2_ISBN + Definitions.END_LINE;
+        final String EXPECTED_RESULT = Definitions.COLLECTION_NAME + COLLECTION_1_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.COLLECTION_DESCRIPTION + COLLECTION_1_DESCRIPTION + Definitions.END_LINE
+            + Definitions.BOOK_NAME + BOOK_2_NAME + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_AUTHOR + BOOK_2_AUTHOR + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_DESCRIPTION + BOOK_2_DESCRIPTION + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_ISBN + BOOK_2_ISBN + Definitions.END_LINE;
         _findingAaaVisitor.visitCollection( ( Collection )_c1 );
         assertEquals( EXPECTED_RESULT, _findingAaaVisitor.getResult() );
     }
