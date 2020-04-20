@@ -42,8 +42,28 @@ public class FindVisitorByName implements Visitor
         String result = "";
         for ( Item item : _items )
         {
-            result += ItemHelper.getString( item, 0 );
+            result += getString( item );
         }
         return result;
+    }
+
+    private String getString( Item item )
+    {
+        if ( item instanceof Book )
+        {
+            return                 ItemHelper.BOOK_NAME        + item.name()        + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_AUTHOR      + item.author()      + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + item.description() + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
+        }
+        else if ( item instanceof Collection )
+        {
+            return                 ItemHelper.COLLECTION_NAME        + item.name()        + Definitions.END_LINE
+            + Definitions.INDENT + ItemHelper.COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
+        }
+        else
+        {
+            throw new IllegalStateException( ItemHelper.ERROR_ITEM_IS_OF_INVALID_TYPE );
+        }
     }
 }
