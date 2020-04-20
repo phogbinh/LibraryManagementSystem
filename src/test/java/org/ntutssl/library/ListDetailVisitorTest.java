@@ -37,12 +37,12 @@ public class ListDetailVisitorTest
             {
                 return ( String )itemInfoField.get( _visitor );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }

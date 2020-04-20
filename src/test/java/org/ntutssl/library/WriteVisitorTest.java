@@ -52,12 +52,12 @@ public class WriteVisitorTest
             {
                 return ( String )jsonArrayItemsField.get( _visitor );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }

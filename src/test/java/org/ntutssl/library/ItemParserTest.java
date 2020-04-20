@@ -122,12 +122,12 @@ public class ItemParserTest
             {
                 return ( ItemBuilder )itemBuilderField.get( _itemParser );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }

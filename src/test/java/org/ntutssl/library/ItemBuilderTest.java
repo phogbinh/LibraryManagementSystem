@@ -50,12 +50,12 @@ public class ItemBuilderTest
             {
                 return ( Item )itemField.get( _itemBuilder );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }

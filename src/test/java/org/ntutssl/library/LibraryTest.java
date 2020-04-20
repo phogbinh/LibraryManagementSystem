@@ -90,12 +90,12 @@ public class LibraryTest
                 assertSame( b1, expectedItems.get( 1 ) );
                 assertSame( c2, expectedItems.get( 2 ) );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }
@@ -125,12 +125,12 @@ public class LibraryTest
                 assertFalse( libraryIterator.hasNext() );
                 assertFalse( libraryItemsIterator.hasNext() );
             }
-            catch( IllegalAccessException exception )
+            catch ( IllegalAccessException exception )
             {
                 assertTrue( false );
             }
         }
-        catch( NoSuchFieldException exception )
+        catch ( NoSuchFieldException exception )
         {
             assertTrue( false );
         }
