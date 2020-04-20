@@ -183,41 +183,41 @@ public class LibraryTest
         Iterator< Item > libraryIterator = library.iterator();
         {
             Book book = ( Book )libraryIterator.next();
-            assertEquals( "Design Patterns", book.name() );
-            assertEquals( "This is a book discuss about 23 patterns of software designs.", book.description() );
-            assertEquals( "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides", book.author() );
-            assertEquals( "0201633612", book.isbn() );
+            assertEquals( TEACHING_ASSISTANT_BOOK_1_NAME, book.name() );
+            assertEquals( TEACHING_ASSISTANT_BOOK_1_DESCRIPTION, book.description() );
+            assertEquals( TEACHING_ASSISTANT_BOOK_1_AUTHOR, book.author() );
+            assertEquals( TEACHING_ASSISTANT_BOOK_1_ISBN, book.isbn() );
         }
         {
             Collection collection = ( Collection )libraryIterator.next();
-            assertEquals( "Agile", collection.name() );
-            assertEquals( "This collection contains all books about agile.", collection.description() );
+            assertEquals( TEACHING_ASSISTANT_COLLECTION_1_NAME, collection.name() );
+            assertEquals( TEACHING_ASSISTANT_COLLECTION_1_DESCRIPTION, collection.description() );
             Iterator< Item > collectionIterator = collection.iterator();
             {
                 Book book = ( Book )collectionIterator.next();
-                assertEquals( "Learning Agile: Understanding Scrum, XP, Lean, and Kanban", book.name() );
-                assertEquals( "Learning Agile is a comprehensive guide to the most popular agile methods, written in a light and engaging style that makes it easy for you to learn.", book.description() );
-                assertEquals( "Andrew Stellman, Jennifer Greene", book.author() );
-                assertEquals( "1449331920", book.isbn() );
+                assertEquals( TEACHING_ASSISTANT_BOOK_2_NAME, book.name() );
+                assertEquals( TEACHING_ASSISTANT_BOOK_2_DESCRIPTION, book.description() );
+                assertEquals( TEACHING_ASSISTANT_BOOK_2_AUTHOR, book.author() );
+                assertEquals( TEACHING_ASSISTANT_BOOK_2_ISBN, book.isbn() );
             }
             {
                 Collection nestedCollection = ( Collection )collectionIterator.next();
-                assertEquals( "Design Patterns", nestedCollection.name() );
-                assertEquals( "This collection contains all books about patterns.", nestedCollection.description() );
+                assertEquals( TEACHING_ASSISTANT_COLLECTION_2_NAME, nestedCollection.name() );
+                assertEquals( TEACHING_ASSISTANT_COLLECTION_2_DESCRIPTION, nestedCollection.description() );
                 Iterator< Item > nestedCollectionIterator = nestedCollection.iterator();
                 {
                     Book book = ( Book )nestedCollectionIterator.next();
-                    assertEquals( "A Pattern Language: Towns, Buildings, Construction (Hardcover)", book.name() );
-                    assertEquals( "This article is about the structured design approach by architect Christopher Alexander.", book.description() );
-                    assertEquals( "Christopher Alexander", book.author() );
-                    assertEquals( "0195019199", book.isbn() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_3_NAME, book.name() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_3_DESCRIPTION, book.description() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_3_AUTHOR, book.author() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_3_ISBN, book.isbn() );
                 }
                 {
                     Book book = ( Book )nestedCollectionIterator.next();
-                    assertEquals( "Design Patterns", book.name() );
-                    assertEquals( "This is a book discuss about 23 patterns of software designs(2nd edition).", book.description() );
-                    assertEquals( "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides", book.author() );
-                    assertEquals( "0201633613", book.isbn() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_4_NAME, book.name() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_4_DESCRIPTION, book.description() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_4_AUTHOR, book.author() );
+                    assertEquals( TEACHING_ASSISTANT_BOOK_4_ISBN, book.isbn() );
                 }
                 assertFalse( nestedCollectionIterator.hasNext() );
             }
