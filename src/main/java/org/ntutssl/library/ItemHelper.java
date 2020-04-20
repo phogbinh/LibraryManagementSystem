@@ -16,14 +16,4 @@ public final class ItemHelper
     {
         /* Body intentionally empty */
     }
-
-    public static String getIndents( int indentsCount, String indent )
-    {
-        String indents = "";
-        for ( int index = 0; index < indentsCount; index++ )
-        {
-            indents += indent;
-        }
-        return indents;
-    }
 }
