@@ -22,6 +22,7 @@ public class InputOutput
         + Definitions.INDENT + "1. 'Add book': to add book to the library" + Definitions.END_LINE
         + Definitions.INDENT + "2. 'Add collection': to add a collection to the library" + Definitions.END_LINE
         + Definitions.INDENT + "3. 'import': import the json file to library." + Definitions.END_LINE
+        + Definitions.INDENT + "4. 'export': export the library to json file." + Definitions.END_LINE
         + Definitions.INDENT + "5. 'list all': to list the detail of all the items in the library" + Definitions.END_LINE
         + Definitions.INDENT + "6. 'find': to find the item(s) in the library." + Definitions.END_LINE
         + Definitions.INDENT + "7. 'exit': to exit the program.";
