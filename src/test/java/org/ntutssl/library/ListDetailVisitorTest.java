@@ -71,7 +71,7 @@ public class ListDetailVisitorTest
             + Definitions.INDENT + Definitions.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
             + Definitions.INDENT + Definitions.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
             + Definitions.INDENT + Definitions.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
-        _book.accept( _visitor );
+        _visitor.visitBook( _book );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
 
@@ -84,7 +84,7 @@ public class ListDetailVisitorTest
             + Definitions.INDENT + Definitions.INDENT + Definitions.BOOK_AUTHOR + BOOK_AUTHOR + Definitions.END_LINE
             + Definitions.INDENT + Definitions.INDENT + Definitions.BOOK_DESCRIPTION + BOOK_DESCRIPTION + Definitions.END_LINE
             + Definitions.INDENT + Definitions.INDENT + Definitions.BOOK_ISBN + BOOK_ISBN + Definitions.END_LINE;
-        _collection.accept( _visitor );
+        _visitor.visitCollection( _collection );
         assertEquals( EXPECTED_STRING, _visitor.getResult() );
     }
 
