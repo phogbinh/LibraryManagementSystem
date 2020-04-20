@@ -76,7 +76,7 @@ public final class ItemHelper
         }
     }
 
-    private static String getIndents( int indentsCount, String indent )
+    public static String getIndents( int indentsCount, String indent )
     {
         String indents = "";
         for ( int index = 0; index < indentsCount; index++ )
