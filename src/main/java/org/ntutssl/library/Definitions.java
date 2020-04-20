@@ -2,17 +2,17 @@ package org.ntutssl.library;
 
 public final class Definitions
 {
-    public static String CLOSING_CURLY_BRACE = "}";
+    public static String CLOSING_CURLY_BRACE    = "}";
     public static String CLOSING_SQUARE_BRACKET = "]";
-    public static String COLON = ":";
-    public static String COMMA = ",";
-    public static String EMPTY = "";
-    public static String END_LINE = "\n";
-    public static String INDENT = "\t";
-    public static String OPENING_CURLY_BRACE = "{";
+    public static String COLON                  = ":";
+    public static String COMMA                  = ",";
+    public static String EMPTY                  = "";
+    public static String END_LINE               = "\n";
+    public static String INDENT                 = "\t";
+    public static String OPENING_CURLY_BRACE    = "{";
     public static String OPENING_SQUARE_BRACKET = "[";
-    public static String QUOTATION_MARK = "\"";
-    public static String SPACE = " ";
+    public static String QUOTATION_MARK         = "\"";
+    public static String SPACE                  = " ";
 
     public static String JSON_INDENT = SPACE + SPACE;
 
