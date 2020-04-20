@@ -25,7 +25,8 @@ public class ListDetailVisitor implements Visitor
     @Override
     public void visitCollection( Collection collection )
     {
-        _itemInfo += ItemHelper.getString( collection, _level );
+        _itemInfo += ItemHelper.getIndents( _level, Definitions.INDENT )     + ItemHelper.COLLECTION_NAME        + collection.name()        + Definitions.END_LINE
+                   + ItemHelper.getIndents( _level + 1, Definitions.INDENT ) + ItemHelper.COLLECTION_DESCRIPTION + collection.description() + Definitions.END_LINE;
         Iterator< Item > iterator = collection.iterator();
         _level++;
         while ( iterator.hasNext() )
