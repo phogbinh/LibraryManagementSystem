@@ -29,6 +29,13 @@ public final class Definitions
 
     public static String REGEX_NON_PRINTABLE_UNICODE_CHARACTERS = "\\p{C}";
 
+    public static String BOOK_NAME              = "Book Name"       + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_AUTHOR            = "Author"          + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_DESCRIPTION       = "Description"     + Definitions.COLON + Definitions.SPACE;
+    public static String BOOK_ISBN              = "ISBN"            + Definitions.COLON + Definitions.SPACE;
+    public static String COLLECTION_NAME        = "Collection Name" + Definitions.COLON + Definitions.SPACE;
+    public static String COLLECTION_DESCRIPTION = "Description"     + Definitions.COLON + Definitions.SPACE;
+
     private Definitions()
     {
         /* Body intentionally empty */
