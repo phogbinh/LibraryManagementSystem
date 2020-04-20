@@ -51,15 +51,15 @@ public class FindVisitorByName implements Visitor
     {
         if ( item instanceof Book )
         {
-            return                 ItemHelper.BOOK_NAME        + item.name()        + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_AUTHOR      + item.author()      + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_DESCRIPTION + item.description() + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
+            return                 Definitions.BOOK_NAME        + item.name()        + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_AUTHOR      + item.author()      + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_DESCRIPTION + item.description() + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.BOOK_ISBN        + item.isbn()        + Definitions.END_LINE;
         }
         else if ( item instanceof Collection )
         {
-            return                 ItemHelper.COLLECTION_NAME        + item.name()        + Definitions.END_LINE
-            + Definitions.INDENT + ItemHelper.COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
+            return                 Definitions.COLLECTION_NAME        + item.name()        + Definitions.END_LINE
+            + Definitions.INDENT + Definitions.COLLECTION_DESCRIPTION + item.description() + Definitions.END_LINE;
         }
         else
         {
