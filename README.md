@@ -58,6 +58,7 @@ The project implements the following design patterns:
 * Builder
 
 ## Class Diagram
+Composed by [phogbinh](https://github.com/phogbinh).
 ![Class Diagram](docs/CLASS_DIAGRAM.jpg)
 
 ## Contributor
